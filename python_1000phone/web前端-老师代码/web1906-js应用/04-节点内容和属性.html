@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/tools.js"></script>
+	</head>
+	<body>
+		
+		<p id="p1">我是段落<a href="https://www.baidu.com">隐私政策</a></p>
+		
+		<img id="img1" src="img/anchor.png"/>
+		
+		<script type="text/javascript">
+			//节点内容和属性: 获取到节点后，节点对应的标签的内容和属性在节点中都会对应一个属性
+			//1.双标签的内容
+			//1)innerText属性   -  双标签的文字内容属性(没有处理标签的能力)
+			//2)innerHTML属性   -  双标的内容属性（有处理标签的能力）
+			_p1 = document.getElementById('p1')
+			//获取标签内容
+			console.log(_p1.innerText)
+			console.log(_p1.innerHTML)
+			//修改标签内容
+//			_p1.innerText = '<img src="img/bear.png"/>我不是段落!'
+			_p1.innerHTML = '<img src="img/bear.png"/>我不是段落!'
+			
+			
+			//2.普通属性
+			//HTML标签中所有的属性，在js节点中都会对应一个一样的属性
+			_img1 = document.getElementById('img1')
+			console.log(_img1.src)
+			_img1.src = 'img/bucket.png'
+			_img1.title = '酒桶'
+			
+			//设置class属性
+			_img1.className = 'c1'
+			
+			//设置标签的整体样式
+			_p1.style = 'color:red; font-size:20px;background-color:yellow;'
+			//单独设置指定样式的指定属性
+			_p1.style.width = '200px';
+			
+			
+			//补充: Math.random()  - 产生 [0,1)的随机小数
+			//parseInt(Math.random()*255)   -  0~255
+			//parseInt(Math.random()*90+10)  - 10~100
+			r = parseInt(Math.random()*255)
+			g = parseInt(Math.random()*255)
+			b = parseInt(Math.random()*255)
+			//rgb(r,g,b)
+//			_p1.style.backgroundColor = 'rgb('+r+','+g+','+b+')'
+			_p1.style.backgroundColor = randowColor(0.5)
+			
+		</script>
+	</body>
+</html>

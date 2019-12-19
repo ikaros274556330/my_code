@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="clearInterval(timer1)">停止!</button>
+		<script type="text/javascript">
+			//1.setInterval(函数,时间) - 指定时间周期性执行函数;会创建一个定时器对象并返回
+			//时间单位 - 毫秒
+			var num = 0
+			timer1 = setInterval(function(){
+				console.log(num)
+				num++
+			},1000)
+			
+			//2.取消周期性定时器
+			//定时器对象.clearInterval() - 关闭指定的定时器对象
+			
+			//练习:点击开始1秒1个数,点击暂停就暂停,
+			
+
+			
+			
+		</script>
+		
+		<script type="text/javascript">
+			//3.一次性定时操作
+			//setTimeout(函数,时间) - 到了指定的时间后执行函数(执行一次)返回定时对象
+			timer2 = setTimeout(function(){
+				console.log('gg')
+			},1000)
+			
+			//4.取消一次性定时器
+			//clearTimeout(定时器对象) - 关闭指定定时器
+			
+			
+		</script>
+	</body>
+</html>

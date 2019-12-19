@@ -1,0 +1,45 @@
+
+<!--
+	1.定位属性：left,right,top,bottom设置的是当前标签的左右上下到
+	参考对象的左右上下的距离
+	注意：如果以上四个属性想要有效果，必须设置定位的参考对象
+	
+	2.设置定位的参考对象：position属性
+	1)initial/static - 不定位（没有参考对象）;body标签在不设置posotion的时候不是initial/static
+	2)absolute       - 绝对定位;将当前标签第一个非initial/static的父标签作为参考对象
+	3)relative       - 相对定位;相对标准流位置进行定位。(一般将标签的position设置为relative来保证子标签能相对自己定位)
+	4)fixed          - 相对浏览器进行定位
+	5)sticky         - 当页面内容超过一屏，相对浏览器定位;如果没有超过就相对标准流位置定位
+	
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--1.直接相对父标签定位-->
+		<div style="background-color: hotpink;width: 100px;height: 100px;top:200px;right:100px;position: absolute;"></div>
+		
+		
+		<!--2.absolut定位-->
+		
+		<style type="text/css">
+			#div3{
+				right: 100px;
+				position: absolute;
+			}
+		</style>
+		
+		<div style="background-color: red;width: 300px;height: 300px;position: relative;">
+			<div style="background-color: green;width: 200px;height: 200px;">
+				<div id="div3" style="background-color: blue;width: 100px;height: 100px;">
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

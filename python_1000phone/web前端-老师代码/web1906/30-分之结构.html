@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+<script type="text/javascript">
+	//js中分之结构有两种: if、switch
+	//1.if语法
+	/*
+	 if(条件语句){
+	 	满足条件需要执行的代码
+	 }
+	 
+	 if(条件语句){
+	 	满足条件要执行的代码
+	 }else{
+	 	不满足条件要执行的代码
+	 }
+	 
+	 
+	 if(条件语句1){
+	 	代码段1
+	 }else if(条件语句2){
+	 	代码段2
+	 }else if(条件语句3){
+	 	代码段3
+	 }
+	 ...
+	 else{
+	 	代码段N
+	 }
+	 */
+	//2.switch语法
+	/*
+	 1)语法:
+	 swicth(表达式){
+	 	case 值1:{
+	 		表达式1
+	 	}
+	 	case 值2:{
+	 		表达式2
+	 	}
+	 	...
+	 	default:{
+	 		表达式N
+	 	}
+	 }
+	 
+	 2)执行过程:
+	 先计算表达式的值，然后让这个值依次和case后面的每个值进行比较，哪个case后面的值和表达式的值相等，就将这个case
+	 作为入口，依次执行后面的表达式，直接执行完或者执行过程中break为止。如果没有哪个case的值和表达式的值相等，
+	 那么就会将default作为入口
+	 
+	 */
+	a = 2
+	switch(a){
+		case 10:
+		case 11:
+		case 12:{
+			console.log('表达式0')
+			break
+		}
+		case 1:{
+			console.log('表达式1')
+			break
+		}
+		case 2:{
+			console.log('表达式2')
+			break
+		}
+		case 3:{
+			console.log('表达式3')
+			break
+			
+		}
+		default:{
+			console.log('表达式N')
+		}
+			
+	}
+	
+	
+	
+	
+	
+</script>

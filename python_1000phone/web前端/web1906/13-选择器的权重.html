@@ -1,0 +1,41 @@
+<!--
+	不同的选择器的权重值不一样，权重越大优先级越高
+	
+	元素选择器：  0001 == 1
+	class选择器：0010 == 2
+	id选择器：0100 == 4
+	群组选择器：看单独选择器的权重
+	后代/子代选择器：各选择器之和
+	伪类选择器：0001 == 1
+	
+	注意：1.如果权重值相同，后写的优先级比先写的高
+		2.除非特殊说明，内联样式表的优先级最该
+		3.属性后如果添加了!important，那么这个属性一定有效
+-->
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<style type="text/css">
+			p{
+				color: blue;
+			}
+			#p1{
+				color: green;
+			}
+			.c1{
+				color: yellow;
+			}
+		</style>
+		
+		<div id="">
+			<p id='p1' class='c1'>我是段落1</p>
+		</div>
+		
+	</body>
+</html>

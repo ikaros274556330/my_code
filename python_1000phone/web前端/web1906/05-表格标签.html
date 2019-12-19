@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1.表格标签:table-tr-td
+			1）table标签 - 代表整个表格
+			border属性 - 设置边框线的宽度
+			bordercolor属性 - 边框线的颜色;颜色单词或#16进制颜色值
+			cellspacing属性 - 设置单元格与单元格以及单元格和表格之间的间隙，默认1
+			bgcolor属性 - 设置整个表格的背景颜色
+			width属性 - 设置整个表格的宽度
+			height属性 - 设置整个表格的高度
+			align属性 - 设置整个表格在网页中的对齐方式:center,left,right
+			cellpadding属性 - 设置整个表格中所有单元格中的内容到边框的距离
+			
+			2）tr标签 - 一个tr代表一行
+			bgcolor属性 - 设置一行的背景颜色
+			height - 设置指定行的高度
+			align属性 - 设置指定行中所有的单元格在单元格中的内容在单元格中的对齐方式
+			cellpadding属性 - 设置整行中的内容到边框的距离
+			
+			3）td标签 - 一个td代表一个单元格
+			bgcolor属性 - 设置指定单元格的背景颜色
+			width属性 - 设置指定单元格所在的列的宽度
+			align属性 - 设置指定单元格中的内容在单元格中的对齐方式
+			cellpadding属性 - 设置指定单元格的内容到边框的距离
+		-->
+		<table cellpadding="20" align="center" width="600" height="400" border="1" cellspacing="0" bordercolor="red" bgcolor="aquamarine">
+			<tr bgcolor="gray" height="60" align="center">
+				<td width="100">一行一列</td>
+				<td>一行二列</td>
+				<td>一行三列</td>
+			</tr>
+			<tr>
+				<td>二行一列</td>
+				<td>二行二列</td>
+				<td>二行三列</td>
+			</tr>
+			<tr>
+				<td>三行一列</td>
+				<td>三行二列</td>
+				<td>三行三列</td>
+			</tr>
+			<tr>
+				<td>四行一列</td>
+				<td>四行二列</td>
+				<td align="center" bgcolor="coral">四行三列</td>
+			</tr>
+		</table>
+		
+		<!--练习:写一个细线表格-->
+		<table bgcolor="black" width="400" height="400" cellspacing="1" align="center">
+			<tr bgcolor="white" align="center">
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr bgcolor="white" align="center">
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr bgcolor="white" align="center">
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+			</tr>
+			
+		</table>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+	</head>
+	<body>
+		
+		<!--1.获取节点
+			
+			$(选择器) - 选中选择器中的标签对应的节点，返回一个jQuery对象
+			说明：选择器 - css中选择器怎么写，这儿就怎么写
+			
+		-->
+		
+		<!--1)简单的选择器:id,class,元素选择器-->
+		<p id='p1'>我是段落1</p>
+		<p class="c1">我是段落2</p>
+		<a href="" class="c1">超链1</a>
+		<h1 class="c1">h1</h1>
+		
+		<script type="text/javascript">
+			var pNodes = $('#p1')
+			console.log(pNodes)
+			console.log(pNodes[0])
+			
+			console.log('=======================')
+			
+			var c1Nodes = $('.c1')
+			console.log(c1Nodes)
+			console.log(c1Nodes[0])
+		</script>
+		
+		<!--2)群组和后代选择器-->
+		<hr />
+		<div id="div1">
+			<div id="">
+				<p>段落3</p>
+				<a href=""></a>
+			</div>
+			<p>段落4</p>
+			
+		</div>
+		
+		<script type="text/javascript">
+			console.log($('#div1>p'))
+			
+			console.log($('#div1 p') )
+		</script>
+		
+		
+		<hr />
+		
+		<div id="div2">
+			<p>段落5</p>
+			<h1>标题2</h1>
+			<a href="">超链3</a>
+			<p>段落6</p>
+			<img src="img/作业bg/bg_1.jpg"/>
+			<a href="">超4</a>
+		</div>
+			
+		<script type="text/javascript">
+			//$('p+a') 选中紧跟着p标签的a标签
+			console.log($('p+a'))
+			
+			//选中id是div2的h1子标签后面所有同级的标签
+			console.log($('#div2>h1~*'))
+			
+			//选中id是div2的h1子标签后面所有a标签
+			console.log($('#div2>h1~a'))
+			
+			//第一个p标签
+			console.log($('p:first'))
+			console.log($('p:last'))
+			
+			//div2后面第一个p标签
+			console.log($('#div2 p:first'))
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

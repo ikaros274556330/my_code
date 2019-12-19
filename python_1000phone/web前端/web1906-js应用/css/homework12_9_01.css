@@ -1,0 +1,11 @@
+#box{
+	position: absolute;
+	width: 600px;
+	height: 400px;
+	left: 30%;
+	top: 25%;
+}
+
+#r1{
+	margin-left: 200px;
+}

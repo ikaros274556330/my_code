@@ -1,0 +1,73 @@
+
+<!--
+	1.定位属性: left、right、top、bottom设置是当前标签的左、右、上、下到参考对象的左、右、上、下的距离
+	注意: 如果以上四个属性想要有效果，必须设置定位的参考对象
+	
+	2.设置定位的参考对象: position属性
+	1)initial/static   -  不定位(没有参考对象);body标签在不设置position的时候不是initial也不是static
+	2)absolute         -  绝对定位;将当前标签第一个非initial/static的父标签作为参考对象
+	3)relative		   -  相对定位;相对标准流位置进行。(一般将标签的position设置为relative来保证子标签能相对自己定位)
+	4)fixed            -  相对浏览器定位
+	5)sticky           -  当页面内容超过一屏相对浏览器定位;如果没有超多一屏就相对标准流位置进行定位
+	
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<!--===============1.直接相对父标签定位(父标签本身不能是initial/static)================-->
+		<!--<div id="" style="width: 100px; height: 100px; background-color: hotpink; top: 200px; right: 10px;position: absolute;"></div>-->
+		
+		<!--=====================2.absolute的定位============================-->
+		<!--<style type="text/css">
+			#div3{
+				right: 20px;
+				position: absolute;
+			}
+		</style>
+		<div style="width: 300px; height: 300px; background-color: red; position: relative;">
+			<div style="width: 200px; height: 200px; background-color: green; position: relative;">
+				<div id="div3" style="width: 80px; height: 80px; background-color: blue;">
+					
+				</div>
+			</div>
+		</div>-->
+		
+		<!--=======================3.relative的定位================================-->
+		<!--<style type="text/css">
+			#div3{
+				bottom: 50px;
+				position: relative;
+			}
+		</style>
+		<div id="div3" style="width: 100px; height: 100px; background-color: hotpink;"></div>-->
+		
+		<!--========================4.相对浏览器定位:fixed=================================-->
+		<!--<style type="text/css">
+			#div3{
+				right: 10px;
+				top: 100px;
+				position: fixed;
+			}
+		</style>
+		<div id="div3" style="width: 100px; height: 100px; background-color: hotpink;"></div>
+		<div id="" style="height: 10000px; background-color: yellow;">
+		</div>-->
+		
+		<!--========================5.sticky定位=================================-->
+		<style type="text/css">
+			#div3{
+				bottom: 10px;
+				position: sticky;
+			}
+		</style>
+		<div id="" style="height: 200px; background-color: yellow;"></div>
+		<div id="div3" style="width: 100%; height: 100px; background-color: hotpink;"></div>
+		
+	</body>
+</html>

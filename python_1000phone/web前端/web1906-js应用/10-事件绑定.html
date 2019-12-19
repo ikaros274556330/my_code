@@ -1,0 +1,63 @@
+<!--
+	1.事件三要素:事件源,事件,事件驱动程序
+	
+	2.事件绑定
+	1)直接给事件源标签的事件属性赋值
+	2)事件属性赋驱动函数,事件驱动程序中函数是window对象
+	事件驱动程序中没有办法获取事件源
+	
+	3)给事件源对应的节点的事件属性赋值,赋函数名或者匿名函数
+	事件驱动程序中的this就是事件源
+	
+	4)事件源节点.addEventListener(事件属性名,事件驱动程序)
+	this是事件源
+	注意:事件属性名要去掉最前面的'on'
+		可以同时给同一个事件源的同一个事件绑定多个事件驱动程序
+	
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1.事件绑定方式1-->
+		<button onclick="alert('点我干嘛?')">按钮1</button>
+		
+		<!--2.事件绑定方式2-->
+		<button onclick="func1()">按钮2</button>
+		<script type="text/javascript">
+			function func1(){
+				alert('hi~')
+				alert('打你!')
+				console.log(this)
+			}
+		</script>
+		
+		<!--方法3-->
+		<button id='btn3'>btn3</button>
+		<script type="text/javascript">
+			btn3_ = document.getElementById('btn3')
+			btn3_.onclick = function(){
+				alert('btn3被点击')
+				console.log(this)
+			}
+		</script>
+		
+		<!--方法4-->
+		<hr />
+		
+		<button id='btn5'>btn5</button>
+		
+		<script type="text/javascript">
+			
+			btn5_ = document.getElementById('btn5')
+			btn5.addEventListener('click',function(){
+				alert('草!')
+				console.log(this)
+			})
+		</script>
+		
+	</body>
+</html>

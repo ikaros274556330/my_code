@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				top: 200px;
+				left: 200px;
+				position: absolute;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div id="div1" style="background-color: pink; width: 100px; height: 100px;">
+			
+		</div>
+		
+		<script type="text/javascript">
+			//是否移动
+			var isMove = false
+			console.log('==============:',typeof(isMove))
+			var startX;
+			var startY;
+			
+			//移动的div
+			var div1_ = document.getElementById('div1')
+			
+			
+			//鼠标按下
+			div1_.onmousedown = function(evt){
+				
+				isMove = true
+				startX = evt.offsetX
+				startY = evt.offsetY
+				console.log('按下.....', startX, startY)
+			}
+			
+			//鼠标弹起
+			div1_.onmouseup = function(){
+				isMove = false
+			}
+			
+			//鼠标移动
+			div1_.onmousemove = function(evt){
+				if(!isMove){
+					return;
+				}
+				//isMove是true的是才移动
+				var top1 = evt.clientY - startY;
+				var left1 = evt.clientX - startX;
+				console.log('top:'+top1+' left:'+left1);
+				this.style.top = top1+'px';
+				this.style.left = left1+'px';
+			}
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

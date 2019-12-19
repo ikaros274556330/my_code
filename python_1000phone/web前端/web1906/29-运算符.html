@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+<script type="text/javascript">
+	//js支持的运算符：数学运算符，比较运算符，逻辑运算符，赋值运算符
+	//1.数学运算符：+、-、*、/、%、**、++、--
+	//+、-、*、/和数学一样,没有整除对应的运算符，会通过Math模块提供的方法来支持取整的操作
+	console.log(10/2) // 5
+	console.log(5/2) // 2.5
+	
+	//++ -> 自加1， -- -> 自减1
+	num = 10
+	num++
+	console.log(num)
+	++num
+	console.log(num)
+	
+	num--
+	--num
+	console.log(num)
+	
+	num1 = 10
+	num2 = num1++
+	console.log(num2,num1)  // 10  11
+	
+	
+	num11 = 10
+	num22 = ++num11
+	console.log(num22,num11) // 11  11
+	
+	a = 10
+	sum = ++a + a++ + --a + a-- + ++a
+	/*
+		sum = 11 + 11 + 11 + 11 + 11
+		a   = 11 = 12 = 11 = 10 = 11
+	 
+	 */
+	
+	
+	//2.比较运算符：>、<、==、!=、===、!==
+	//结果都是布尔值
+	//判断大小和python一样
+	//==判断相等的时候，如果数据类型不同会先转换成相同的数据类型，然后判断
+	//===判断相等的时候，如果数据类型不同结果直接false
+	
+	console.log('5' == 5)  // true
+	console.log('5' === 5)  // false
+	
+	//3.逻辑运算符:&&(逻辑与) ||(逻辑或) !(逻辑非)
+	
+	age = 18
+	score = 90
+	
+	console.log(age > 18 && score > 80)  // false
+	console.log(age > 18 || score > 80)  // true
+	console.log(! (age > 18))
+	
+
+</script>

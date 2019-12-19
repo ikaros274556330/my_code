@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+<script type="text/javascript">
+	//1.对象的直接量
+	
+	/*
+	 {
+	 	属性1:属性值1，
+	 	属性2:属性值2，
+	 	...
+	 }
+	 
+	 
+	 */
+	
+	
+	p1 = {
+		name:'小明',
+		age:18,
+		gender:'男'
+	}
+	
+	
+	//2.构造方法(相当于类)
+	/*
+	 构造方法本质就是函数。
+	 
+	 语法：
+	 function 函数名/类名(参数列表){
+	 	this.属性1 = 值1
+	 	this.属性2 = 值2
+	 	...
+	 	return this
+	 }
+	 
+	 构造方法的调用(创建对象): new 函数名()
+	 
+	 */
+	
+	function Person(name,age,gender='男'){
+		
+		//===对象属性===
+		this.name = name
+		this.age = age
+		this.gender = gender
+		
+		//===对象方法===
+		this.eat = function(food){
+			console.log(this.name+'在吃'+food)
+		}
+		
+		return this
+	}
+	
+	p2 = new Person('小红',20)
+	p3 = new Person('Tom',30,'女')
+	
+	console.log(p1)
+	console.log(p2)
+	console.log(p3)
+	
+	//3.使用对象属性 - 查
+	//对象.属性
+	//对象[属性名]
+	
+	console.log(p1.name,p1['age'])
+	console.log(p3.name,p3['age'])
+	p2.eat('屎')
+	
+	//4.修改对象属性的值/添加对象属性
+	//对象.属性 = 值   - 存在修改，不在就添
+	//对象[属性名] = 值
+	
+	p3.id = '001'
+	p3['ip'] = '无下限'
+	console.log(p3,p3.id,p3.ip)
+	
+	//删除
+	delete p3.id
+	console.log(p3)
+	
+	//5.添加属性和方法
+	/*
+	类名.prototype
+	
+	*/
+	Person.prototype.abc = 100
+	
+	console.log(p3.abc)
+	
+</script>

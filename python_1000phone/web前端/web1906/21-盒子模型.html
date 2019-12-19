@@ -1,0 +1,185 @@
+<!--
+	1.盒子模型
+	每个可见的标签其实都是由content,padding,border和margin四个部分组成
+	其中content,padding,border是可见的，margin是不可见的，但是占位置
+	
+	2.控制盒子模型
+	1)content - 设置标签的宽度和高度其实就是在设置content大小
+				标签中的内容或者子标签都是显示或者添加到content上的
+				设置标签的背景会作用于content
+	
+	2)padding(内边距) - padding分四个方向，这四个方向可以单独控制(大小)
+				              设置标签的背景会作用padding
+				              
+	3)border(边框) - border分四个方向，每个方向可以单独控制(大小，样式和颜色)
+	
+	4)margin(外边距) - margin分四个方向，每个方向可以单独控制(大小)
+					  不可见，但是占位置
+
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<style type="text/css">
+			#div1{
+				/*控制content大小*/
+				width: 100px;
+				height: 100px;
+				
+				/*控制padding大小*/
+				/*同时设置*/
+				/*padding: 值;*/
+				
+				/*单独设置*/
+				padding-left: 50px;
+				
+				/*控制border*/
+				/*border:边框宽度 边框的样式(solid-实线,) 颜色(可以用rgba()来设置，第四个参数表示透明度0~1)*/
+				border: 5px solid cornflowerblue;
+				
+				/*设置圆角*/
+				/*border-radius: 30px;*/
+				border-radius: 20px 50px;
+				
+				/*控制margin*/
+				margin: 100px;
+			}
+		</style>
+		
+		<!--<div id="div1" style="background-color: red;"></div>-->
+		
+		<!--
+			.div*5 可以批量制造class为div1的div
+		-->
+		
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 300px;
+				margin-top: 20px;
+				margin-left: 20px;
+				background-color: yellow;
+				float: left;
+			}
+			
+			span{
+				width: 85px;
+				height: 85px;
+				margin-top: 10px;
+				margin-left: 10px;
+				background-color: cornflowerblue;
+				float: left;
+			}
+			
+			
+		</style>
+		
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+			
+	</body>
+</html>
+

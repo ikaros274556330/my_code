@@ -1,0 +1,138 @@
+<!--
+	1.什么是vue - 用js封装的框架，主要让数据渲染更加简单
+	Vue主要是通过一个Vue对象和网页内容进行关联，关联后修改
+	Vue对象就可以直接修改网页内容
+	在工程中要用Vue,需要导入vue.js文件
+	
+	2.Vue对象 - js
+	el属性 - 选择器(一般写id选择器)  将当前创建的Vue对象和html中的标签关联
+	data属性 -对象的属性和对应的值   通过对象的属性来提供数据
+	methods属性 - 对象属性和对应的函数，通过对象属性提供方法
+	computed属性 - 
+	
+	3.Vue指令 - html
+	1)标签内容 - {data属性名}
+	2)标签属性 - v-bind:标签属性 = 'data属性名'
+	3)if语句   - v-if='data属性名' (如果data属性值是true对应的标签就显示，否则隐藏)
+	4)循环结构 - v-for = '变量 in 数组'
+	5)双向绑定 - v-model = 'data属性名' (一般在表单标签中有效)
+	
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+			
+		</script>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+	</head>
+	<body>
+		
+			
+		<!--1.绑定标签内容-->
+		<p id="app1">{{message1}}</p>
+		
+		<div id="app2">
+			<p>{{pc}}</p>
+			<font>{{f1}}</font>
+			<a>{{a1}}</a>
+		</div>
+		<script type="text/javascript">
+			//1.创建Vue对象
+			var app1 = new Vue({
+				el:'#app1',
+				data:{
+					message:'我是段落1',
+					message1:'我不是段落1',
+				},
+			})
+			
+			app1.message1 = '草泥马！'
+			
+			var app2 = new Vue({
+				el:'#app2',
+				data:{
+					pc:'我是p2',
+					f1:'我是f1',
+					a1:'我是a1'
+				}
+			})
+			
+		</script>
+		
+		
+		<!--2.标签属性-->
+		<div id="app3">
+			<img v-bind:src='imageUrl' v-bind:title='imageTitle'/>
+		</div>
+		
+		<script type="text/javascript">
+			var app3 = new Vue({
+				el:"#app3",
+				data:{
+					imageUrl:'img/作业bg/bg_1.jpg',
+					imageTitle:'图片1'
+				}
+			})
+			
+			app3.imageUrl = 'img/作业bg/bg_2.jpg'
+		</script>
+		
+		<!--3.if语句-->
+		<hr />
+		
+		<div id="app4">
+			<p v-if="isShow">我是p4</p>	
+			
+		</div>
+		
+		<script type="text/javascript">
+			var app4 = new Vue({
+				el:'#app4',
+				data:{
+					isShow:true
+				}
+			})
+			
+		</script>
+		
+		<!--4.for循环-->
+		<hr />
+		<div id="app5">
+			<p v-for="name in names">{{name}}</p>
+			
+			<div v-for="i in names">
+				<p class='goodname'>Y{{i}}Y</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var app5 = new Vue({
+				el:'#app5',
+				data:{
+					names:['雷军','余承东','黄章','库克','罗永浩']
+				}
+			})
+		</script>
+		
+		<!--5.双向绑定-->
+		<hr />
+		<div id="app6">
+			<p>{{userName}}</p>
+			<input type="" name="" id="" v-model:value='userName' />
+		</div>
+		<script type="text/javascript">
+			var app6 = new Vue({
+				el:'#app6',
+				data:{
+					userName:'张三',
+				}
+			})
+		</script>
+		
+	</body>
+</html>

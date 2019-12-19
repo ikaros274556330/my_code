@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			
+			<h1>标题1</h1>
+			<h1>标题2</h1>
+			
+		</div>
+		<!--1.创建节点:$('HTML创建标签的语法')-->
+		<script type="text/javascript">
+			//创建p标签
+			var pNodes = $('<p>我是段落1</p>')
+			console.log(pNodes)
+			
+			var divNodes = $('<div><a>我是超链接1</a></div>')
+			
+			
+		</script>
+		
+		<!--
+			2.添加节点
+			1)节点对象1.append(节点对象2) - 在1中添加2		
+		-->
+		<script type="text/javascript">
+				
+			//1)节点对象1.append(节点对象2) - 在1中添加2
+				
+			$('#div1').append(pNodes)
+				
+			//2)节点等于宣告1.prepend(节点2) - 在1中最前面添加2
+				
+			$('#div1').prepend(divNodes)
+			
+			//3)节点1.before(节点2) 在节点1前加入节点2
+			$('#div1 h1:last').before($("<input placeholder='傻逼才输入' />"))
+			
+			//4)节点1.after(节点2)
+			$('#div1 h1:first').after($('<input id="in1" type="radio" /><label for="in1">男</label>'))
+			
+		</script>
+		
+		<!--3.删除节点-->
+		<div id="div2">
+			<p>段落2</p>
+			<a href="">超链2</a>
+			<p>段落3</p>
+			
+		</div>
+		
+		<hr />
+		<script type="text/javascript">
+			//节点对象.remove()
+			//删除会整体删除,添加也会整体添加
+			$('#div2 a').remove()
+//			
+//			$('#div2 p').remove()
+			
+//			$('#div2 p').append('<input type="color" />')
+
+			//2)清空   节点对象.empty() - 删除节点中所有子节点
+			$('#div2').empty()
+		</script>
+		
+		
+		<!--4.拷贝节点-->
+		
+		<hr />
+		<div id="div3" style="background-color: salmon;height: 200px;width: 300px;">
+			<p>段落4</p>
+		</div>
+		
+		<script type="text/javascript">
+			
+			//1)浅拷贝 - 只克隆了结构，事件丢失
+			var newDiv3s = $('#div3').clone()
+			
+			//2)深拷贝 - 结构、事件与数据都克隆
+			var newDiv3s_deep = $('#div3').clone()
+			
+			a = $('#div3').before(document.createElement('p'))
+			
+			b = $('#div3').before($($('#div3')[0].cloneNode()))
+			
+			console.log(a,b)
+			
+			
+			//补充:js对象和jQuery对象的相互转换
+			//jQuery对象 转 js - 取出jQuery对象容器中的元素
+			//js对象 转 jQuery - $(js对象)
+			
+		</script>
+	</body>
+</html>

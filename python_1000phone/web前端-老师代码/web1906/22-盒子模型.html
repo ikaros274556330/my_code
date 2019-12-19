@@ -1,0 +1,87 @@
+<!--
+	1.盒子模型
+	每个可见的标签其实都是由content、padding、border和margin四个部分组成；
+	其中content、padding、border是可见的，margin是不可见的，但是占位置
+	
+	2.控制盒子模型
+	1)content     - 设置标签的宽度和高度其实就是在设置content的大小; 
+				 	标签中的内容或者子标签都是显示或者添加到content上的;
+				 	设置标签的背景会作用于content
+    2)padding(内边距)  - padding分四个方向；这四个方向可以单独控制(大小);
+    		         		设置标签的背景会作用于padding
+    		         		
+    3)border	(边框)	 -  border分四个方向；每个方向可以单独控制(大小、样式和颜色);
+    
+    4)margin(外边距)  - margin分四个方向; 每个方向可以单独控制(大小)
+     			       不可见，但是占位置
+    
+    
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<style type="text/css">
+			#div1{
+				/*1.控制content的大小*/
+				width: 100px;
+				height: 100px;
+				
+				/*2.控制padding
+				 1)一起设置(同时给四个方向赋值)
+				 padding: 值;
+				 
+				 2)单独设四个方向的值
+				 padding-left
+				 padding-right
+				 padding-top
+				 padding-bottom
+				 */
+				/*padding: 50px;*/    
+				padding-left: 50px;
+				padding-top: 10px;
+				
+				/*3.控制border
+				 1)一起设置
+				 border: 边框宽度 边框的样式(solid-实线，dashed-虚线, dotted-点划线, double-双线) 边框颜色;
+				 */
+				border: 3px solid rgba(255,0,0,1);
+				border-left: 5px dotted #0000FF;
+				
+				/*2)设置圆角*/
+				/*同时设置四个方向的圆角*/
+				/*border-radius: 10px;*/
+				
+				/*单独设置某一个圆角*/
+				/*border-top-left-radius: 20px;
+				border-bottom-right-radius: 30px;*/
+				
+				/*border-radius: 20px 30px;*/
+				border-radius: 10px 20px 30px;
+				
+				/*4.控制margin*/
+				/*margin: 100px;*/
+				margin-left: 100px;
+			}
+		</style>
+		<div id="div1" style="background-color: khaki;">
+			div1
+		</div>
+		
+		<input style="padding-left: 20px;"/>
+		
+		<div id="">
+			<div id="" style="width: 200px; height: 200px; background-color: rgba(0,0,255,0.8); float: left;">
+				
+			</div>
+			<div style="width: 100px; height: 100px; background-color: red;">
+				
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

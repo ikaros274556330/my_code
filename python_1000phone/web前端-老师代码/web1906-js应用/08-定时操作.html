@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="clearInterval(timer1)">关闭定时器</button>
+		<hr />
+		<button onclick="start()">开始</button>
+		<button onclick="stop()">结束</button>
+		
+		<script type="text/javascript">
+			// 1.设置周期性的定时器
+			//setInterval(函数,时间)  - 每隔指定的时间就调用一次函数; 会创建一个定时器对象并且返回
+			// 时间单位 - 毫秒
+			num = 1
+			timer1 = setInterval(function(){
+				num += 1
+				console.log('hello!', num)
+			}, 1000)
+			
+			//2.取消周期性的定时器
+			//clearInterval(定时器对象)    -   关闭指定的定时器对象
+//			clearInterval(timer1)
+
+			//练习: 点击开始按钮就每个1秒打印一个数字，从1开始打印；点击暂停就停止打印
+			num2 = 1
+			function start(){
+				timer2 = setInterval(function(){
+					console.log(num2)
+					num2 += 1
+				}, 1000)
+			}
+			
+			function stop(){
+				clearInterval(timer2)
+			}
+			
+		</script>
+		
+		
+		<hr />
+		<button onclick="clearTimeout(timer3)">拆炸弹</button>
+		<script type="text/javascript">
+			//3.一次性的定时操作
+			//setTimeout(函数,时间)   -  到了指定的时间后执行函数(函数只会执行一次), 返回定时器对象
+			timer3 = setTimeout(function(){
+				alert('完蛋了!')
+			}, 5000)
+			
+			//4.取消一次性定时器
+			//clearTimeout(定时器对象)  -  关闭指定定时器
+//			clearTimeout(timer3)
+
+			//补充：修改当前窗口加载的地址
+//			window.location.href	 = 'https://www.baidu.com'		
+		</script>
+		
+	</body>
+</html>

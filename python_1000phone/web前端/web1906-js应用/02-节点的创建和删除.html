@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			#box11>div{
+				width: 100px;
+				height: 50px;
+				background-color: red;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul id='subject'>
+			<li>python</li>
+			<li id='h5'>h5</li>
+		</ul>
+		
+		<script type="text/javascript">
+			//1.创建节点
+			//docment.creatElement(标签名) - 创建指定标签的标签名
+			//注意:创建节点,节点不会被添加到网页中,也不会显示
+			li_ = document.createElement('li')
+			
+			//设置双标签文本内容
+			li_.innerText = 'Java'
+			console.log(li_)
+			
+			//2.添加节点
+			//1)appendChild(需要添加的标签)
+			subject_ = document.getElementById('subject')
+			subject_.appendChild(li_)
+			console.log(subject_)
+			
+			//2)节点1.insetBefore(节点2,节点3) - 在节点1中的节点3前面插入节点2
+			li_2 = document.createElement('li')
+			li_2.innerText = '物联网'
+			h5 = document.getElementById('h5')
+			subject_.insertBefore(li_2,h5)
+			console.log(subject_)
+			
+			
+		</script>
+		
+		
+		<div id="box" style="background-color: darkkhaki;width: 300px;height: 100px;">
+			<p>我是段落1</p>
+		</div>
+		<br />
+		<script type="text/javascript">
+			//3.拷贝节点
+			//节点.cloneNode() - 拷贝指定节点产生一个新的节点(浅拷贝)
+			//节点.cloneNote(true) - ....(深拷贝)(跟python差不多,拷贝子节点)
+			box_ = document.getElementById('box')
+			box_2 = box_.cloneNode()
+			console.log(box_2)
+			
+			box_3 = box_.cloneNode(true)
+			
+			_body = document.getElementsByTagName('body')[0]
+			_body.appendChild(box_2)
+			
+			
+			
+			_body.appendChild(box_3)
+			
+		</script>
+		
+		
+		<div id="box2">
+			<p id='p2'>我是段落2</p>
+			<a href=''>我是超链1</a>
+			<img src="img/luffy.jpg"/>
+			
+		</div>
+		
+		<!--4.删除节点-->
+		<script type="text/javascript">
+			//1)节点1.removeChild(节点2) - 删除节点1中的节点2
+			_box2 = document.getElementById('box2')
+			_box2.removeChild(document.getElementById('p2'))
+			
+			//2)节点.remove() - 删除指定节点
+			_box2.lastElementChild.remove()
+			
+
+		</script>
+		
+		<!--5.替换节点-->
+		<hr />
+		<div id='box3'>
+			<p>我是段落3</p>
+			<img src="img/luffy.jpg"/>
+			<a href="">我是超链3</a>
+			
+		</div>
+		
+		<script type="text/javascript">
+			
+			//节点1.replaceChild(节点2,节点3) - 将节点1中节点2换成节点3
+			_box3 = document.getElementById('box3')
+			_box3.replaceChild(document.createElement('input'),_box3.children[1])
+		</script>
+		
+		<hr />
+		
+		<script type="text/javascript">
+			
+		</script>
+		
+		<div id="box11">
+			
+		</div>
+		
+		<button onclick="add_box()">按钮</button>
+		
+	</body>
+		<script type="text/javascript">
+			add_box1 = document.getElementById('box11')
+			
+			function add_box(){
+				var new_box = document.createElement('div')
+				add_box1.appendChild(new_box)
+			}
+		</script>
+</html>

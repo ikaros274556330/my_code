@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				text-align: center;
+				position: relative;
+				/*height: 430px;*/
+			}
+			
+			#pointBox{
+				height: 30px;
+				width: 100%;
+				/*background-color: sandybrown;*/
+				
+				position: absolute;
+				bottom: 0;
+			}
+			
+			#pointBox>font{
+				color: rgb(193,193,193);
+				margin-right: 20px;
+				
+				font-size: 20px;
+				
+				cursor: pointer;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src='img/slide-1.jpg' id="img1"/>
+			<div id="pointBox"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var allImage = ['slide-1.jpg','slide-2.jpg','slide-3.jpg','slide-4.jpg'];
+			var imageCount = allImage.length;
+			var currentIndex = 0;
+			var img1_ = document.getElementById('img1');
+			var pointBox_ = document.getElementById('pointBox');
+			var currentPointNode;
+			
+			//=============1.添加导航点===========
+			(function(){
+				for(var x in allImage){
+					var pointNode = document.createElement('font');
+					pointNode.innerText = '●';
+					pointNode.onmouseover = onPoint;
+					pointNode.onmouseout = leavePoint;
+					pointNode.num = x    //添加num属性保存当前节点的位置(第几个)
+					pointBox_.appendChild(pointNode);
+					if(x == currentIndex){
+						pointNode.style.color = 'rgb(40,165,154)'
+						currentPointNode = pointNode
+					}
+				}
+			})()
+			
+			function onPoint(){
+				//停止定时器
+				clearInterval(timer1)
+				
+				currentPointNode.style.color = 'rgb(193, 193, 193)'
+				currentPointNode = this
+				currentPointNode.style.color = 'rgb(40,165,154)'
+				
+				currentIndex = this.num
+				var imageSrc =  'img/'+allImage[currentIndex]
+				img1_.src = imageSrc
+			}
+			
+			function leavePoint(){
+				creatTimer()
+			}
+			
+			
+			//=============2.定时切换============
+			function creatTimer(){
+				timer1 = setInterval(function(){
+				//1.让下标增加
+				currentIndex ++;
+				if(currentIndex == allImage.length){
+					currentIndex = 0;
+				}
+				
+				//2.切换图片
+				//获取当前图片地址
+				var imageSrc = 'img/'+allImage[currentIndex];
+				//修改图片
+				img1_.src = imageSrc;
+				
+				//3.切换选中的点
+				currentPointNode.style.color = 'rgb(193,193,193)'
+				currentPointNode = pointBox_.children[currentIndex]
+				currentPointNode.style.color = 'rgb(40,165,154)'
+				
+				},2000)
+			}
+			creatTimer()
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

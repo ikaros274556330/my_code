@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--1.清除浮动指的是清除浮动而产生的高度塌陷问题
+			
+			2.高度塌陷：如果父标签没有设置高度，并且没浮动，
+			子标签浮动的时候就会出现高度塌陷的问题
+			
+			3.清除浮动的三种方法：
+			1）空盒子法：在高度会塌陷的标签的最后添加一个空格的div,并且设置这个空的
+			div的clear属性为both
+			
+			2）方法2：设置高度会塌陷的标签的overflow属性为hidden
+			要塌陷的div 设置class:'height'
+			.height{
+				overflow:hidden
+			}
+		-->
+		
+		<div style="background-color: red;height: 200px;"></div>
+		<div style="background-color: green;">
+			<div id="" style="background-color: yellow;height: 500px;width: 200px;">
+				
+			</div>
+		</div>
+		<div style="background-color: blue;height: 150px;"></div>
+		
+		
+		
+	</body>
+</html>

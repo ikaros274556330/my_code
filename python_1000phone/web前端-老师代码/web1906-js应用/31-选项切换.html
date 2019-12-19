@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#app1{
+				margin-top: 20px;
+				margin-left: 50px;
+			}
+			#box1{
+				width: 100px;
+				height: 40px;
+				background-color: seagreen;
+				text-align: center;
+				line-height: 40px;
+				color: white;
+				font-size: 16px;
+			}
+			
+			#box2{
+				width: 200px;
+				height: 300px;
+				background-color: seagreen;
+			}
+			.c1,.c2{
+				width: 50px;
+				height: 30px;
+				
+				color: white;
+				margin-left: 10px;
+				margin-top: 10px;
+				float: left;
+				text-align: center;
+				line-height: 30px;
+				cursor: pointer;
+			}
+			.c1{
+				background-color: red;
+			}
+			.c2{
+				background-color: orange;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="app1">
+			<div id="box1">
+				<font>{{selectOption.name}}</font>
+			</div>
+			<div id="box2">
+				<div v-on:click="selectOption.cl='c2';selectOption=option;selectOption.cl='c1'" v-bind:class="className(option)" v-for="option in options">
+					<font>{{option.name}}</font>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+//			var datas = [
+//					{name: '北京', cl:'c1'}, 
+//					{name: '成都', cl:'c2'}, 
+//					{name: '重庆', cl:'c2'}, 
+//					{name: '深圳', cl:'c2'}, 
+//					{name: '大连', cl:'c2'},
+//					{name: '哈尔滨', cl:'c2'},
+//					{name: '武汉', cl:'c2'},
+//					{name: '广州', cl:'c2'}
+//					]
+			var datas = [
+						{name: '北京', cl:'c1'}, 
+						{name: '成都'}, 
+						{name: '重庆'}, 
+						{name: '深圳'}, 
+						{name: '大连'},
+						{name: '哈尔滨'},
+						{name: '武汉'},
+						{name: '广州'}
+					]
+			var app1 = new Vue({
+				el: '#app1',
+				data:{
+					selectOption:datas[0],
+					options: datas
+				},
+				methods:{
+					className:function(option1){
+						if(option1.cl){
+							return option1.cl
+						}else{
+							option1.cl = 'c2'
+							return option1.cl
+						}
+					}
+				}
+				
+			})
+		</script>
+		
+	</body>
+</html>

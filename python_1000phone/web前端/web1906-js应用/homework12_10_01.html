@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 150px;
+				height: 100px;
+				background-color: red;
+				float: left;
+				margin-left: 50px;
+				text-align: center;
+				line-height: 100px;
+				font-size: 30px;
+				color: yellow;
+			}
+			
+			button{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+			}
+		</style>
+	</head>
+	<body style="background-color: skyblue;">
+		<div>京东</div>
+		<div>淘宝</div>
+		<div>拼多多</div>
+		<div>唯品会</div>
+		<div>小米商城</div>
+		<div>天猫</div>
+		<div>亚马逊</div>
+		<div>Ebay</div>
+
+		<button id='button1'>停止</button>
+		
+		
+		<script type="text/javascript">
+			var block_list = document.getElementsByTagName('div')
+			
+			function change_color(){
+				if(this.flag==false){
+					this.style.backgroundColor='white'
+					this.flag=true
+				}else{
+					this.style.backgroundColor='red'
+					this.flag=false
+				}
+			}
+			
+			for(x of block_list){
+				x.flag = false				
+				x.onclick=change_color
+			}
+			
+			function run_light(){
+				for(i of block_list){
+					if(i.flag){
+						i.style.backgroundColor='red'
+						i.flag=false
+					}else{
+						i.style.backgroundColor='white'
+						i.flag=true
+					}
+
+				}
+			}
+			
+			func1 = setInterval(run_light,500)
+			button_obj = document.getElementById('button1')
+			button_obj.flag=true
+			button_obj.onclick = function(){
+				if(this.flag){
+					clearInterval(func1)
+					this.flag=false
+					this.innerText='开始'
+				}
+				else{
+					func1=setInterval(run_light,500)
+					this.flag=true
+					this.innerText='停止'
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

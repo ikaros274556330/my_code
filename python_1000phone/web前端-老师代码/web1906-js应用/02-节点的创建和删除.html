@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="subject">
+			<li>python</li>
+			<li id="h5">h5</li>
+		</ul>
+		
+		<script type="text/javascript">
+			//1.创建节点
+			console.log('==================创建节点====================')
+			//document.createElement(标签名)   -  创建指定标签对应的节点
+			//注意: 创建节点，节点不会被添加到网页中，也不会显示
+			liNode = document.createElement('li')
+			//设置双标签的文本内容
+			liNode.innerText = 'Java'
+			console.log(liNode)
+			
+			//2.添加节点
+			console.log('==================添加节点====================')
+			//1)节点1.appendChild(节点2)  - 在节点1的最后添加节点2
+			subjectNode = document.getElementById('subject')
+			subjectNode.appendChild(liNode)
+			
+			//2)节点1.insertBefore(节点2,节点3)  -  在节点1中的节点3的前面插入节点2
+			liNode2 = document.createElement('li')
+			liNode2.innerText = '物联网'
+			
+			h5Node = document.getElementById('h5')
+			
+			subjectNode.insertBefore(liNode2, h5Node)
+		</script>
+		
+		<div id="box" style="background-color: chartreuse; width: 300px; height: 500px;">
+			<p>我是段落1</p>
+			<img src="img/hat1.png"/>
+		</div>
+		<br />
+		
+		<!---------3.拷贝节点--------->
+		<script type="text/javascript">
+			//节点.cloneNode()  - 拷贝指定节点产生一个一模一样的新的节点(浅拷贝: 只拷贝当前这一个标签)
+			//节点.cloneNode(true)  -  拷贝指定节点产生一个一模一样的新的节点(深拷贝: 拷贝当前标签和标签中所有的子标签)
+			console.log('=====================拷贝节点================')
+			//1）浅拷贝
+			_box = document.getElementById('box')
+			_box2 = _box.cloneNode()
+			console.log(_box2)
+			
+			_body = document.getElementsByTagName('body')[0]
+			_body.appendChild(_box2)
+			
+			//2)深拷贝
+			_box3 = _box.cloneNode(true)
+			_body.appendChild(_box3)
+			
+		</script>
+		
+		<!-----------4.删除节点-------------->
+		<hr />
+		<div id="box2">
+			<p id="p2">我是段落2</p>
+			<a href="">我是超链接1</a>
+			<img src="img/logo.png"/>
+		</div>
+		
+		<script type="text/javascript">
+			//1)节点1.removeChild(节点2)  -  删除节点1中的节点2  
+			_box2 = document.getElementById('box2')
+			_box2.removeChild(document.getElementById('p2'))
+			
+			//2)节点.remove()  - 删除指定节点
+			_box2.lastElementChild.remove()
+		</script>
+		
+		
+		<!-----------5.替换节点------------>
+		<hr />
+		<div id="box3">
+			<p>我是段落3</p>
+			<img src="img/logo.png"/>
+			<a href="">我是超链接3</a>
+		</div>
+		
+		<script type="text/javascript">
+			//节点1.replaceChild(节点2,节点3)  - 将节点1中的节点3替换成节点2
+			_box3 = document.getElementById('box3')
+			_box3.replaceChild(document.createElement('input'), _box3.children[2])
+		</script>
+		
+		<button onclick="func1()">按钮</button>
+		<script type="text/javascript">
+			function func1(){
+				alert('你好')
+				alert('hello')
+			}
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			
+			<input type="text" name="in1" id="in1" value=""  style="border:0;border-bottom: 1px solid darkgrey;text-align: center;outline: 0;">
+			<button id="add_buttom">添加</button>
+		</div>
+		
+		<script type="text/javascript">
+			new_box = $('<div></div>')
+			new_box.css({
+				width:'200px',
+				height:'50px',
+				backgroundColor:'red',
+				marginBottom:'10px',
+			})
+			
+			
+			$('#box1').on('click','button',function(){
+				val = $('input').val()
+				new_box = new_box.clone().text(val)
+				new_box.css({
+					'color':'yellow',
+					'fontSize':'18px',
+				})
+				p = $('<p>x</p>')
+				p.css('float','right')
+				p.css('cursor','pointer')
+				p.on('click',function(){
+					this.parentElement.remove()
+				})
+				new_box.append(p)
+				$('#box1').prepend(new_box)
+			})
+		</script>
+	</body>
+</html>

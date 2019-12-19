@@ -1,0 +1,88 @@
+<!--
+	1.事件三要素: 事件源、事件、事件驱动程序
+	事件源发生指定的事件就完成事件驱动程序(谁谁谁发生什么就做什么)
+	
+	2.事件绑定
+	1)直接给事件源标签的事件属性赋值
+	2)在事件源标签的事件属性中调用事件驱动程序对应的函数; 事件驱动程序中的this是window对象
+	  (事件驱动程序中没有办法获取事件源)
+	  事件源标签的事件属性赋一个函数调用表达式
+    3)给事件源对应的节点的事件属性赋值，赋函数名或者匿名函数; 事件驱动程序中的this是事件源
+    4)事件源节点.addEventListener(事件属性名, 事件驱动程序); 事件驱动程序中的this是事件源
+      注意: 1.事件属性名要驱动最前面的on  2.可以同时给同一个事件源的同一个事件绑定多个事件驱动程序
+	
+	
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1.事件绑定方式1-->
+		<button onclick="alert('按钮被点击')">按钮1</button>
+		
+		<!--2.事件绑定方式2-->
+		<button onclick="func1()">按钮2</button>
+		<script type="text/javascript">
+			function func1(){
+				alert('你好!')
+				alert('hello!')
+				console.log(this)
+			}
+		</script>
+		
+		<!--3.事件绑定方式3-->
+		<button id="btn3">按钮3</button>
+		<script type="text/javascript">
+			btn3_ = document.getElementById('btn3')
+			btn3_.onclick = function(){
+				alert('按钮3被点击')
+				console.log(this)
+			}
+			btn3_.onclick = function(){
+				alert('新的功能!')
+			}
+			btn3_.addEventListener('click', function(){
+				alert('新的功能2！')
+			})
+			
+		</script>
+		
+		<hr />
+		<button class="c1">按钮41</button>
+		<button class="c1">按钮42</button>
+		<button class="c1">按钮43</button>
+		<script type="text/javascript">
+			function c1Action(){
+				console.log(this)
+				this.style.backgroundColor = 'red'
+			}
+			
+			c1s = document.getElementsByClassName('c1');
+			for(c1_ of c1s){
+				c1_.onclick = c1Action
+			}
+		</script>
+		
+		<!--4.事件绑定方式4-->
+		<hr />
+		<button id="btn5">按钮5</button>
+		<script type="text/javascript">
+			btn5_ = document.getElementById('btn5')
+			btn5_.addEventListener('click', function(){
+				alert('按钮5被点击')
+				console.log(this)
+			})
+			btn5_.addEventListener('click', function(){
+				alert('新功能!')
+			})
+		</script>
+		
+		
+		
+		
+		
+	</body>
+</html>

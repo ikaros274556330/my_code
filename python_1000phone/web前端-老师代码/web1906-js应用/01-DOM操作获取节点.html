@@ -1,0 +1,84 @@
+<!--
+	1.什么是DOM
+	DOM - document object mode(文档对象模型)
+		  js内部自动创建了一个对象，叫document, 通过这个对象可以去获取网页中的内容。
+		  
+	2.获取节点   -   在js中获取标签对应的节点
+	document.getElementById(id属性值)   -  获取HTML中id属性是指定值的标签, 返回值是标签对应的节点对象
+	document.getElementsByClassName(class属性值)   - 获取HTML中class属性是指定值的所有标签，返回值是容器，
+													容器中的元素是满足要求的节点
+	document.getElementsByTagName(标签名)  - 获取HTML中指定标签，返回值是容器，容器中的元素就是指定标签对应的节点
+	
+	(了解)document.getElementsByName(name属性值)   -  获取HTML中name属性是指定值的所有标签，返回值是容器，
+											   容器中的元素是满足要求的节点
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p id="p1">我是段落1</p>
+		<a href="" class="c1">百度</a>
+		<p class="c1">我是段落2</p>
+		
+		<!--1.直接获取节点-->
+		<script type="text/javascript">
+			//1)通过id获取节点对象
+			p1Node = document.getElementById('p1')
+			console.log(p1Node)
+			
+			//2)通过class获取节点对象
+			c1Nodes = document.getElementsByClassName('c1')
+			//c1Nodes是元素是class是c1的节点的容器
+			console.log(c1Nodes)
+			
+			//注意: 不能通过for-in遍历获取每个节点！
+			for(x of c1Nodes){
+				console.log(x)
+			}
+			
+			//3)通过标签名获取节点
+			console.log('=========================')
+			pNodes = document.getElementsByTagName('p')
+			for(x of pNodes){
+				console.log(x)
+			}
+		</script>
+		
+		
+		
+		<div>
+			<p id="p3">我是段落3</p>
+			<a href="">我是超链接2</a>
+			<input type="" name="userName" id="userName" value="" />
+		</div>
+		
+		<!--2.父子节点-->
+		<script type="text/javascript">
+			//1)获取父节点  - 子节点对象.parentElement
+			console.log('================获取父节点====================')
+			p3Node = document.getElementById('p3')
+			divNode1 = p3Node.parentElement
+			console.log(divNode1)
+			
+			//2)获取所有的子节点  - 节点对象.children
+			console.log('================获取所有子点===================')
+			divChildren = divNode1.children
+			console.log(divChildren)
+			
+			//3)获取第一个子节点   -  节点对象.firstElementChild
+			console.log('================第一个子节点===================')
+			pNode =  divNode1.firstElementChild
+			console.log(pNode)
+			
+			//4)获取最后一个子节点  -  节点对象.lastElementChild
+			console.log('================最后一个子节点==================')
+			console.log(divNode1.lastElementChild)
+			
+		</script>
+		
+	</body>
+</html>

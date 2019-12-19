@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+<script type="text/javascript">
+	//1.字符串
+	/*
+	 
+	 1)获取字符
+	 字符串[下标]
+	 
+	 注意：js中的下标范围0~长度-1
+	 
+	 2)字符串加法运算
+	 数据+字符串/字符串+数据/字符串+字符串  - 字符串拼接
+	 
+	 3)字符串长度
+	 字符串.length
+	 
+	 4)字符串相关方法
+	 
+	 
+	 
+	 
+	 */
+	
+	str1 = 'hello js'
+	console.log(str1[1])
+	
+	str2 = 'abc' + 'hello'
+	console.log(str2)
+	
+	str3 = 'abc' + 100 + true
+	console.log(str3)
+	
+	console.log('abc'*3)  // NaN - Not a Number
+	
+	console.log('abcd'.length)  // 4
+	
+	
+	console.log('========字符串相关方法=======')
+	
+	
+	str11 = 'abc'
+	str22 = new String('abc')
+	
+	str11+str22
+	console.log(str11+str22)
+	console.log(str22)
+	
+	str5 = 'hello js'
+	//切片
+	console.log(str5.slice(1,4))  // ell
+	
+	//js中的正则表达式写在两个/之间
+	
+	//3.切割
+	console.log('how are you'.split(' '))
+	
+	//补充:正则匹配
+	//正则对象.test(字符串) - 判断字符串和正则表达式是否匹配，结果时布尔
+	re = /^1[3-9]\d{9}$/
+	console.log(re.test(13880241683))
+	console.log(re.test(138802416831))
+	
+	//2.数组
+	/*
+	 1)查
+	 数组[下标] - 获取下标对应的元素。如果下标不存在返回undefind
+	 遍历用for in 或 for of
+	 
+	 2)增
+	 数组[下标] = 值 - 下标不存在的时候会添加元素
+	 数组.push(元素)  -  在数组最后添加一个元素
+	 数组.unshift(元素)  -  在数组第一个为止添加一个元素
+	 数组.splice(下标，0，元素1，元素2....) - 在下标位置增加后面的元素
+	 
+	 3)删
+	 数组.splice(下标，N) - 从数组指定下标开始，删除N个元素
+	 数组.pop() - 取出数组中最后一个元素，并删除
+	 
+	 4)改
+	 数组[下标] = 值
+	 
+	 
+	 
+	 
+	 */
+	
+	num = [23,9,78,67]
+	console.log(num[3])   // 67
+	console.log(num[100]) // undefind
+	
+	
+	console.log('=========2.增=========')
+	scores = []
+	scores[2] = 19
+	console.log(scores)
+	
+	nums = [23,9,78,67]
+	nums.push(100)
+	console.log(nums)
+	
+	nums.unshift(45)
+	console.log(nums)
+	
+	nums = [23,9,78,67]
+	nums.splice(1,0,1000,200)
+	console.log(nums)
+	
+	
+	console.log('=========3.删=========')
+	nums = [23,9,78,67]
+	nums.splice(1,2)
+	console.log(nums)
+	
+	nums = [23,9,78,67]
+	a = nums.pop()
+	console.log(nums,a)  // [23, 9, 78] 67
+	
+	nums = [23,9,78,67]
+	a = nums.shift()
+	console.log(nums,a)  // [9, 78, 67] 23
+	
+	console.log('=========4.改=========')
+	nums = [23,9,78,67]
+	nums[0] = 100
+	console.log(nums)
+	
+	console.log('===========其他常用方法============')
+	
+	//1.排序
+	/*
+	 数组.sort(fn)
+	 
+	 
+	 
+	 */
+	
+	nums = [23,9,78,67]
+	
+	// 从小到大
+	function func1(item1,item2){
+		return item1-item2
+	}
+	
+	nums.sort(func1)
+	console.log(nums)
+	
+	// 从大到小
+	function func2(item1,item2){
+		return item2-item1
+	}
+	
+	nums.sort(func2)
+	console.log(nums)
+	
+	
+	//各位排序
+	nums = [23,9,78,67]
+	function fun3(item1,item2){
+		return item1%10 - item2%10
+	}
+	nums.sort(fun3)
+	
+	console.log(nums)
+	
+	//按元素各个位数的和从小到大排序
+	num = [123,78,65,91]
+	
+	num.sort(function(item1,item2){
+		n1 = 0
+		for (let x of String(item1)){
+			n1 += Number(x)
+		}
+		n2 = 0
+		for (let y of String(item2)){
+			n2 += Number(y)
+		}
+		return n1-n2
+	})
+	
+	console.log(num)
+	
+	//2.数组.join(字符串=',')  -  用字符串将数组中元素拼接在一起产生新的字符串
+	
+	array1 = [123,'小明',true]
+	result = array1.join('+')
+	console.log(result)
+	
+	//3.数组.forEach(函数)
+	array1 = [123,'小明',true]
+	array1.forEach(function(x,y){
+		console.log(x,y)
+	})
+	
+</script>

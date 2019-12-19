@@ -1,0 +1,152 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*===========整体============*/
+#app1{
+	width: 800px;
+	/*background-color: seagreen;*/
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	margin-top: 20px;
+}
+
+/*============表头============*/
+#goodsBox>ul{
+	height: 40px;
+	background-color: lightgray;
+	
+	list-style: none;
+	
+	line-height: 40px;
+}
+
+#goodsBox>ul>li{
+	float: left;
+}
+
+/*全选*/
+.check{
+	margin-left: 10px;
+	width: 60px;
+}
+
+/*商品*/
+.goods{
+	width: 290px;
+	text-align: center;
+	
+	/*position: relative;*/
+	/*border-left: 1px solid black;*/
+}
+
+.price,.num,.subtotal,.operation{
+	width: 110px;
+	text-align: center;
+	/*border-left: 1px solid black;*/
+}
+
+/*===============购物车商品==================*/
+.goodsList{
+	height: 150px;
+	line-height: 150px;
+	
+	/*background-color: sandybrown;*/
+	border-bottom: 1px solid black;
+}
+.goodsList>div{
+	float: left;
+}
+
+/*商品*/
+.goods1{
+	position: relative;
+	height: 150px;
+}
+.goods>img{
+	/*float: left;*/
+	position: absolute;
+	left: 0px;
+	width: 80px;
+	height: 110px;
+	margin-top: 20px;
+}
+.goods>p{
+	
+	position: absolute;
+	left: 90px;
+	width: 200px;
+	
+	font-size: 14px;
+	color: rgb(15,0,0);
+	line-height: 15px;
+	
+	margin-top: 20px;
+	
+	
+}
+
+/*数量*/
+.num>input{
+	width: 15px;
+	text-align: center;
+}
+.num>button{
+	width: 20px;
+	height: 20px;
+}
+
+
+/*操作*/
+.operation>button{
+	border: 0;
+	outline: 0;
+	font-size: 20px;
+	color: gray;
+}
+
+/*================商品结算==================*/
+#account{
+	margin-top: 20px;
+	height: 400px;
+}
+
+#account>button:first-child{
+	border: 0;
+	outline: 0;
+	
+	font-size: 20px;
+	color: gray;
+}
+
+#accountBtn{
+	border: 0;
+	outline: 0;
+	width: 100px;
+	height: 40px;
+	background-color: red;
+	color: white;
+	font-size: 20px;
+	
+	float: right;
+}
+
+#account>font{
+	float: right;
+	margin-right: 100px;
+	font-size: 16px;
+}
+
+#accountNum{
+	color: red;
+}
+
+#totalPrice{
+	color: red;
+	font-size: 25px;
+	font-weight: 500;
+}

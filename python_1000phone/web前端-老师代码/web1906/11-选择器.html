@@ -1,0 +1,158 @@
+<!--
+	CSS中的选择器就是用来选中标签的
+	
+	1.元素(标签)选择器
+	直接将标签名作为选择器，选中当前页面中所有的指定标签。
+	例如: p{}  - 选中当前页面中所有的p标签
+	
+	2.id选择器
+	将id属性值前加一个#作为一个选择器， 选中的是当前页面中id属性值是指定值的标签。
+	注意: id是唯一
+	例如: #p1{}  - 选中id值是p1的标签
+	
+	3.class选择器
+	将class属性值前加.作为一个选择器, 选中当前页面中所有class属性值是指定值的标签
+	注意: 同一个class在一个页面中可以有多个；同一个标签可以同时有多个class属性值
+	例如: .c1{}  -  选中class值是c1的标签
+	
+	4.群组选择器
+	将多个选择器用逗号隔开作为一个选择器, 选中每个选择器选中所有标签。
+	例如: p,#p1,.c1{}  -  选中所有的p标签和id是p1的标签以及所有class是c1的标签
+	
+	
+	5.后代选择器
+	将多个选择器用空格隔开作为一个选择器, 从第一个选择器开始层层往后找，找到最后一个选择器对应的标签
+	例如: p #p1{}  - 选中p标签中id是p1的标签
+	     选择器1 选择器2{}  - 选中选择器1中选择器2
+	     注意: 选择器2是选择器1的后代就行
+	     
+    6.子代选择器
+    将多个选择器用>隔开作为一个选择器
+    例如: div>p{}   - 选中div标签中的p标签(p标签必须是div标签的子标签)
+	
+	7.通配符
+	将*作为选择器, 选中当前页面中所有的标签
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--=============1.元素选择器示例===============-->
+		<!--<style type="text/css">
+			p{
+				color: yellowgreen;
+			}
+		</style>
+		<h1>我是标题1</h1>
+		<p>我是段落1</p>
+		<a href="01-head标签.html">head</a>
+		<p>我是段落2</p>-->
+		
+		
+		<!--==============2.id选择器示例================-->
+		<!--<style type="text/css">
+			#p1{
+				font-size: 50px;
+				color: hotpink;
+			}
+		</style>
+		<h1>我是标题1</h1>
+		<p>我是段落1</p>
+		<a href="01-head标签.html">head</a>
+		<p id="p1">我是段落2</p>-->
+		
+		
+		<!--==============3.class选择器示例================-->
+		<!--<style type="text/css">
+			.c1{
+				color: darkblue;
+				font-size: 40px;
+			}
+			.c2{
+				background-color: yellow;
+			}
+		</style>
+		<h1 class="c1 c2">我是标题1</h1>
+		<p class="c2">我是段落1</p>
+		<a href="01-head标签.html">head</a>
+		<p id="p1" class="c1">我是段落2</p>
+		<img src="img/bear.png"/>
+		<h2 class="c2">我是标题2</h2>
+		<input type="tel" name="" id="" value="" />
+		<a href="" class="c1">我是超链接1</a>-->
+		
+		<!--==============4.群组选择器选择器示例================-->
+		<!--<style type="text/css">
+			p,a{
+				color: darkblue;
+				font-size: 35px;
+			}
+		</style>
+		<h1 class="c1 c2">我是标题1</h1>
+		<p class="c2">我是段落1</p>
+		<a href="01-head标签.html">head</a>
+		<p id="p1" class="c1">我是段落2</p>
+		<img src="img/bear.png"/>
+		<h2 class="c2">我是标题2</h2>
+		<input type="tel" name="" id="" value="" />
+		<a href="" class="c1">我是超链接1</a>-->
+		
+		<!--==============5.后代选择器选择器示例================-->
+		<!--<style type="text/css">
+			div p{
+				color: salmon;
+			}
+		</style>
+		<p>我是段落1</p>
+		
+		<div id="">
+			<p>我是段落2</p>
+		</div>
+		
+		<div id="">
+			<span id="">
+				<p>我是段落3</p>
+			</span>
+		</div>-->
+		
+		<!--==============6.子代选择器选择器示例================-->
+		<!--<style type="text/css">
+			div>p{
+				color: red;
+			}
+		</style>
+		<p>我是段落1</p>
+		
+		<div id="">
+			<p>我是段落2</p>
+		</div>
+		
+		<div id="">
+			<span id="">
+				<p>我是段落3</p>
+			</span>
+			<div id="">
+				<p>我是段落4</p>
+			</div>
+		</div>-->
+		
+		<!--==============7.通配符示例================-->
+		<style type="text/css">
+			*{
+				color: darkcyan;
+			}
+		</style>
+		<h1 class="c1 c2">我是标题1</h1>
+		<p class="c2">我是段落1</p>
+		<a href="01-head标签.html">head</a>
+		<p id="p1" class="c1">我是段落2</p>
+		<img src="img/bear.png"/>
+		<h2 class="c2">我是标题2</h2>
+		<input type="tel" name="" id="" value="" />
+		<a href="" class="c1">我是超链接1</a>
+		
+	</body>
+</html>

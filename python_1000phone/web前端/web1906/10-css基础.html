@@ -1,0 +1,59 @@
+<!--
+	1.什么是css
+	css又叫层叠样式表，是web标准中的表现标准，主要负责网页中内容的布局和样式
+	
+	2.写在哪
+	1)内联样式表 - 将css代码写到标签的style属性中
+	2)内部样式表 - 将css代码写在style标签中
+	3)外部样式表 - 将css代码写在css文件中;然后再通过link标签再html文件中导入
+	
+	3.怎么写样式表
+	1)语法:
+	选择器{属性1:值1;属性2:值2......}
+	
+	2)说明
+	选择器 - 选中需要添加样式的标签
+	{}   - 固定写法
+		   注意:如果是内联样式'选择器{}'可以省略
+		   
+	属性 - 属性名和属性值用冒号连接，属性和属性之间用分号隔开
+		   学css就是学css中的属性和功能
+		   注意:如果属性值是表示大小的数字，必须加单位:px(像素)、em(空格)
+		   也可以使用百分比 
+		   
+	3)常用属性
+	color               - 设置文字颜色
+	background-color    - 设置背景颜色
+	font-size           - 字体大小
+	width               - 宽度
+	height              - 高度
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<!--外部样式表-->
+		<link rel="stylesheet" type="text/css" href="css/10-css基础.css"/>
+		
+		
+		<!--内部样式表-->
+		<style type="text/css">
+			#p1{
+				color: blue;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<!--内联样式表-->
+		<p style="color: red;">我是段落1</p>
+		
+		<p id='p1'>我是段落2</p>
+		
+	</body>
+</html>

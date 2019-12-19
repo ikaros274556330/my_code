@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				background-color: pink;
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				
+				top: 200px;
+				left: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script type="text/javascript">
+			var isMove = false;
+			var box_ = document.getElementById('box');
+			var startX;
+			var startY;
+			
+			box_.onmousedown = function(evt){
+				isMove = true;
+				startX = evt.offsetX;
+				startY = evt.offsetY;
+			}
+			
+			box_.onmouseup = function(){
+				isMove = false
+			}
+			
+			box_.onmousemove = function(evt){
+				if(!isMove){
+					console.log('不动！');
+					return;
+				}
+				
+				console.log('移动');
+				
+				var top1 = evt.clientX - startX;
+				var left1 = evt.clientY - startY;
+				
+				this.style.top = top1+'px';
+				this.style.left = left1+'px';
+			}
+		</script>
+	</body>
+</html>

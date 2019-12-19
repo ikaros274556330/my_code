@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+		
+		<style type="text/css">
+			#web_page>div{
+				width: 500px;
+				height: 200px;
+				margin-bottom: 20px;
+			}
+			
+			.c1{
+				width: 200px;
+				height: 200px;
+			}
+			
+			.c1>img{
+				border-radius: 20px;
+			}
+			
+			.c2{
+				position: absolute;
+				width: 280px;
+				height: 200px;
+				right: 10px;
+				top: 0;
+				z-index: 10;
+			}
+			
+			.name{
+				font-size: 20px;
+				font-weight: 550;
+				border: 0;
+				margin: 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="web_page" style="position: absolute;left: 35%;">
+			
+		</div>
+		
+		<script type="text/javascript">
+			page_block = $('#web_page')
+			
+			function main(result){
+				console.log(result.data)
+				for(dict of result.data){
+					//主模块
+					new_block=$('<div></div>')
+					new_block.css('position','relative')
+					
+					//左模块
+					new_block_left=$('<div></div>')
+					new_block_left.addClass('c1')
+					new_block_left.append('<img src='+ dict.goods_image+' />')
+					
+					//右模块
+					new_block_right=$('<div></div>')
+					new_block_right.addClass('c2')
+					
+					//店名
+					name_p = $('<p>'+dict.name+'</p>')
+					name_p.css('margin-bottom','30px')
+					name_p.addClass('name')
+					new_block_right.append(name_p)
+					
+					//价格
+					price_f_f = $('<font>￥</font>')
+					price_f_f.css('color','red')
+					price_f_f.css('font-size','20px')
+					price_f = $('<font>'+ dict.price +'</font>')
+					price_f.css('font-size','30px')
+					price_f.css('color','red')
+					price_f_f_f=$('<font>.00</font>')
+					price_f_f_f.css('color','red')
+					new_block_right.append(price_f_f)
+					new_block_right.append(price_f)
+					new_block_right.append(price_f_f_f)
+					
+					//评价和好评率
+					comments = $('<p>'+dict.comment_total+'+条评价 '+Math.ceil((dict.good_conmment/dict.comment_total)*100)+'%好评</p>')
+					comments.css('color','darkgrey')
+					new_block_right.append(comments)
+					
+					//店名和超链
+					shop_name = $('<p>'+ dict.shop_name +'<a target="_blank" href="'+ dict.shop_url +'">进店</a></p>')
+					new_block_right.append(shop_name)
+					
+					//添加模块
+					new_block.append(new_block_left)
+					new_block.append(new_block_right)
+					page_block.append(new_block)
+				}
+					
+			};
+			
+			
+			$.ajax({
+				type:"get",
+				url:"http://rap2api.taobao.org/app/mock/233723/shopping",
+				success:main
+
+			});
+		</script>
+	</body>
+</html>

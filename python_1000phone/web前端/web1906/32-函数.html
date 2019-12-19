@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//1.普通函数
+	
+	/*
+	 function 函数名(参数列表){
+	 	函数体	
+	 }
+	 
+	 注意：1）js中函数的调用可以放在声明之前(提升的时候不可以越过script标签)
+	 	 2）调用函数的时候，任何函数都可以传任意个参数，跟形参没关系;
+	 	 形参可以直接获取部分实参的值;函数中arguments对象可以获取函数调用时的
+	 	 所有实参
+	 	 
+	 
+	 2.匿名函数
+	 
+	 变量 = function(参数列表){
+	 	函数体
+	 }
+	 
+	 3.箭头函数
+	 (参数列表)=>{
+	 	函数体
+	 }
+	 
+	 4.自调用函数
+	 
+	 (function(形参列表){
+	 	函数体
+	 })(实参列表)
+	 
+	 注意：自调用函数的上一条语句必须在结束的时候加分号
+	 
+	 
+	*/
+	
+	//==============1.函数的提升=============
+	func1()
+	
+	function func1(){
+		console.log('函数1被调用')
+		console.log('this',this)
+	}
+	
+	func1()
+	
+	
+	//=============2.函数的参数==============
+	console.log('===================函数参数=======================')
+	
+	
+	function func2(){
+		console.log('函数2被调用')
+	}
+	
+	func2()
+	func2(1)
+	func2(1,2)
+	
+	
+	function func3(x,y){
+		console.log('函数3被调用',x,y)
+		console.log(arguments)
+		for(let x of arguments){
+			console.log(x)
+		}
+	}
+	
+	func3()
+	func3(1)
+	func3(1,2)
+	func3(1,2,3)
+	
+	console.log('===========================')
+	function func4(fn){
+		console.log('func4')
+		fn()
+	}
+	
+	function func5(){
+		console.log('func5')
+	}
+	
+	func4(func5)
+	
+	func4(function(){
+		console.log('匿名函数~')
+	})
+	
+	console.log('===================')
+	
+	func4(()=>{
+		console.log('箭头函数调用')
+	})
+	
+	a = (x,y)=>{
+		console.log(x*y)
+	}
+	
+	a(5,4);
+	
+	c = (function(x,y){
+		console.log(x*y)
+	})(4,5)
+	
+	
+	b = function(x,y){
+		console.log(x+y)
+	}
+	
+	b(5,4)
+	
+	console.log(c)
+	
+</script>

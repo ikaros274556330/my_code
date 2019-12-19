@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app1">
+			<div id="goods" v-for="goods in goodsList">
+				<p class="name">{{goods.name}}</p>
+				<p class="price">{{goods.price}}</p>
+			</div>
+			
+			<p>总价:{{totalPrice}}</p>
+		</div>
+		
+		<script type="text/javascript">
+			var app1 = new Vue({
+				el:'#app1',
+				data:{
+					goodsList:[
+					{name:'辣条',price:8},
+					{name:'辣d',price:7.2},
+					{name:'案说法d',price:2.2},
+					{name:'案d',price:2.8},
+					],
+					
+				},
+				computed:{
+					totalPrice:function(){
+						var sum1 = 0
+						for(i of this.goodsList){
+							sum1 += i.price
+						}
+						
+						return sum1
+					}
+				},
+				
+			})
+		</script>
+	</body>
+</html>

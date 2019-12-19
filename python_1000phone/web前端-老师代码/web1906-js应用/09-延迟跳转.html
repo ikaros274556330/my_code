@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="p1">5s后自动跳转到百度...</p>
+		
+		<script type="text/javascript">
+			p1_ = document.getElementById('p1')
+			//时间
+			num = 5
+			timer1 = setInterval(function(){
+				num -- 
+				if(num >= 1){
+					p1_.innerText = num+'s后自动跳转到百度...'
+					
+				}else{
+					clearInterval(timer1)
+					window.location.href = 'https://www.baidu.com'
+				}
+					
+			}, 1000)
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+		
+		<style type="text/css">
+			*{
+				border: 0;
+				margin: 0;
+			}
+			
+			body{
+				text-align: center;
+			}
+				
+			body>div{
+				width: 500px;
+				height: 200px;
+				margin: 0 auto;
+				margin-bottom: 20px;
+			}
+			
+			body>div>img{
+				float: left;
+				border-radius: 20px;
+			}
+			
+			body>div>div{
+				position: absolute;
+				left: 920px;
+				width: 280px;
+				height: 200px;
+			}
+			
+			/*name*/
+			.c1{
+				font-size: 20px;
+				font-weight:bold;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				margin-bottom: 60px;
+			}
+			.f1,.f2,.f3{
+				float: left;
+				color: red;
+			}
+			.f1{
+				font-size: 20px;
+				margin-top: 10px;
+			}
+			.f2{
+				font-size: 30px;
+			}
+			.f3{
+				font-size: 20px;
+				margin-top: 10px;
+			}
+			
+			#comment{
+				position:absolute;
+				top: 150px;
+				color: darkgrey;
+			}
+			
+			#shopname{
+				position: absolute;
+				top: 175px;
+				color: darkgrey;
+			}
+			
+			#shopname>a{
+				text-decoration: none;
+				color: black;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		<script type="text/javascript">
+			web_page = $('body')
+			
+			
+			function main(result){
+				console.log(result)
+				for(dict of result.data){
+					web_page.append($('<div><img src="'+dict.goods_image+'"><div><p class="c1">'+ dict.name
+					+'</p><font class="f1">￥</font><font class="f2">'+ dict.price +'</font><font class="f3">.00</font><p id="comment">'+ 
+					dict.comment_total+'+条评价  '+ Math.ceil((dict.good_conmment/dict.comment_total)*100) +'%好评</p><p id="shopname">'+ 
+					dict.shop_name+'&emsp;<a target="_blank" href="'+ dict.shop_url +'">进店 ></a></p></div></div>'))
+				}
+				
+			}
+			
+			$.ajax({
+				type:"get",
+				url:"http://rap2api.taobao.org/app/mock/233723/shopping",
+				success:main
+			});
+		</script>
+	</body>
+</html>

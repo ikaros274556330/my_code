@@ -1,0 +1,69 @@
+<!--
+	1.常见事件类型
+	onload - 页面加载完成
+	
+	onclick - 鼠标点击(单击)标签对应的事件
+	ondblclick - 鼠标双击事件
+	
+	onmouseover - 鼠标进入标签事件
+	onmouseout - 鼠标离开标签事件
+	
+	onchange - 内容改变事件
+	
+	margin:auto 水平居中！
+	
+	
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.页面中加载完成才获取页面内容
+			window.onload = function(){
+				p1_ = document.getElementById('p1')
+				console.log(p1_)
+			}
+		</script>
+	</head>
+	<body>
+		<p id='p1'>我是段落1</p>
+		
+		<img id='img1' src="img/作业bg/bg_3.jpg"/>
+		
+		<script type="text/javascript">
+			document.getElementById('img1').ondblclick=function(){
+				alert('点我干啥？')
+				this.style='width:200px;height:100px;'
+				
+			}
+		</script>
+		
+		<!--鼠标进入和鼠标离开事件-->
+		<br />
+		<img id='img2' src="img/作业bg/luffy.jpg"/>
+		<script type="text/javascript">
+			img2_ = document.getElementById('img2')
+			img2_.onmouseover = function(){
+				this.src='img/作业bg/bg_1.jpg'
+			}
+			
+			img2_.onmouseout = function(){
+				this.src='img/作业bg/luffy.jpg'
+			}
+		</script>
+		
+		<input type="" name="" id="input1" value="" />
+		<script type="text/javascript">
+			input1_ = document.getElementById('input1')
+			
+			//输入框输入完成后会触发onchange事件
+			input1_.onchange=function(){
+				console.log(this.value)
+			}
+		</script>
+		
+	</body>
+</html>

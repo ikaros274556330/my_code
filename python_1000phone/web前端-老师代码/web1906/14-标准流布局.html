@@ -1,0 +1,68 @@
+<!--
+	1.标准流布局
+	在没有写任何布局样式的时候，标签在网页有默认的布局方式，这个默认的布局方式就是标准流布局
+	不同类型的标签在标准流中的布局方式不同，主要分为三种:
+	1)块级标签: 一个占一行； 默认宽度是父标签的宽度，高度是内容的高度；设置宽高有效;
+			   例如: div、p、h1-h6、hr、列表标签等...
+	2)行内标签: 一行可以显示多个; 默认大小是内容大小; 设置宽高无效
+			   例如: a、span、font等
+			   
+	3)行内块标签: 一行可以显示多个; 默认大小是内容大小;设置宽高有效;
+			   例如: input、img
+			   
+			   
+	2.display属性(CSS属性)
+	可以通过修改标签样式的display属性来修改标签的类型
+	block   -  块级标签
+	inline  -  行内标签
+	inline-block  -  行内块标签
+	none    -  隐藏
+	
+	3.脱流  -  脱离标准流布局
+	不管什么标签以什么样的技术成功脱流了，那么它的布局方式只有一种:
+	一行可以显示多个；默认大小是内容的大小；设置宽度有效
+	浮动和定位都可以脱流
+	
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--====================1.标准流布局示例================-->
+		<h1>====================1.标准流布局示例================</h1>
+		<!--行内标签-->
+		<a href="" style="background-color: red; width: 100px;">百度</a>
+		
+		<!--块级标签-->
+		<p style="background-color: chartreuse; height: 100px;">我是段落1</p>
+		<p style="background-color: chartreuse; height: 100px; width: 120px;">我是段落2</p>
+		
+		<!--行内块(可以看成)-->
+		<img src="img/bear.png" style="width: 60px; height: 60px;"/>
+		<img src="img/bucket.png"/>
+		<input type="" name="" id="" value="" style="width: 100px; height: 200px;" />
+		<input type="" name="" id="" value="" />
+		<hr />
+		
+		<h1>====================2.修改标签类型示例=================</h1>
+		<!--块级变成行内-->
+		<p style="background-color: hotpink; display: inline; width: 200px; height: 100px;">我是段落3</p>
+		<p style="background-color: khaki; display: inline;">我是段落4</p>
+		
+		<!--块级变行内块-->
+		<p style="background-color: lightcoral; height: 60px; display: inline-block;">我是段落5</p>
+		<p style="background-color: darkolivegreen; height: 60px; display: inline;">我是段落6</p>
+		
+		<!--行内变块级和行内块-->
+		<a href="" style="background-color: sandybrown; height: 60px; display: block;">百度</a>
+		<a href="" style="background-color: aquamarine; height: 60px; display: inline-block;">谷歌</a>
+		
+		<!--隐藏标签-->
+		<p style="display: none;">我是段落7</p>
+		<p>我是段落8</p>
+	</body>
+</html>

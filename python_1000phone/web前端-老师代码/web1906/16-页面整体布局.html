@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--================1.使用inline-block让竖着显示的横着来===================
+			这样做横着显示的标签之间有缝隙，导致页面不精确
+		-->
+		<!--<div style="background-color: khaki; height: 150px;"></div>
+		<div style="background-color: red; height: 200px; display: inline-block; width: 40%;"></div>
+		<div style="background-color: green; height: 200px; display: inline-block; width: 59%;"></div>
+		<div style="background-color: violet; height: 120px;"></div>-->
+		
+		<!--=================2.浮动让竖着显示的横着来===========================-->
+		<div style="background-color: khaki; height: 150px;"></div>
+		<div style="background-color: red; height: 200px; float: left; width: 40%;"></div>
+		<div style="background-color: green; height: 200px; float: left; width: 60%;"></div>
+		<div style="background-color: violet; height: 220px; float: left; width: 100%;"></div>
+	</body>
+</html>

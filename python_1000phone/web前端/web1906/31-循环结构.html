@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+<script type="text/javascript">
+	//js中有for循环和while循环
+	
+	//1.for循环
+	/*
+	1)C语言的for循环
+	语法:
+	for(表达式1;表达式2;表达式3){
+		循环体
+	}
+	
+	相当于：
+	表达式1
+	while 表达式2:
+		循环体
+		表达式3
+		
+	for(给变量赋初值;循环条件;修改变量的值){
+		循环体
+	}
+	 
+	
+	2) for-in循环
+	for(变量 in 序列){
+		循环体
+	}
+	让变量去序列中取值(取的下标/属性名)，取完为止，每取一个值执行依次循环体
+	
+	3) for-of循环
+	for(变量 of 序列){
+		循环体
+	}
+	
+	 
+	*/
+	
+	//1+2+....+100
+	sum = 0
+	for(let num=1;num<=100;num++){
+		sum += num
+	}
+	
+	console.log(sum)
+	
+	//100~999
+	for(let num=100;num<=999;num++){
+		console.log(num)
+	}
+	
+	//2,4,6....100
+	console.log('====================')
+	for(let num=2;num<=100;num+=2){
+		console.log(num)
+	}
+	
+	
+	console.log('=======for-in循环=======')
+	
+	for(let x in 'abc'){
+		console.log('x',x,'abc'[x])
+	}
+	
+	obj1 = {a:100,b:200,c:300}
+	for(let x in obj1){
+		console.log(x,obj1[x])
+	}
+	
+	console.log('=======for-of循环======')
+	for(let x of 'abc'){
+		console.log('x',x)
+	}
+	
+	
+</script>

@@ -1,0 +1,98 @@
+<!--
+	1.常见事件类型
+	onload   -  页面加载完成
+	
+	onclick  -  鼠标点击(单击)标签对应的事件(一般绑定在按钮上)
+	ondblclick  -  鼠标双击事件
+	onmouseover -  鼠标进入标签事件
+	onmouseout  -  鼠标离开标签事件
+	
+	onchange   -  内容改变事件
+	
+	
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.页面中的标签加载完成，才去获取页面中的内容
+			window.onload = function(){
+				p1_ = document.getElementById('p1')
+				console.log(p1_)
+			}
+		</script>	
+	</head>
+	<body>
+		<p id="p1">我是段落1</p>
+		
+		
+		<!--2.鼠标双击事件-->
+		<img id="img1" src="img/ghost.png"/>
+		<script type="text/javascript">
+			document.getElementById('img1').ondblclick = function(){
+				//双击后放大图片
+				this.style = 'width:300px;height:300px;'
+			}
+		</script>
+		
+		<!--3.鼠标进入和鼠标离开事件-->
+		<br />
+		<img id="img2" src="img/hat1.png"/>
+		<script type="text/javascript">
+			img2_ = document.getElementById('img2')
+			img2_.onmouseover = function(){
+				this.src = 'img/hat2.png'
+			}
+			
+			img2_.onmouseout = function(){
+				this.src = 'img/hat1.png'
+			}
+			
+		</script>
+		
+		<!--4.值改变事件-->
+		<input type="" name="" id="input1"value="" />
+		
+		<br />
+		<input type="radio" name="gender" value="男" /><label for="">男</label>
+		<input type="radio" name="gender" value="女" /><label for="">女</label>
+		
+		<br />
+		<br />
+		<select name="" id="city">
+			<option value="北京">北京</option>
+			<option value="成都">成都</option>
+			<option value="重庆">重庆</option>
+			<option value="上海">上海</option>
+		</select>
+		
+		<script type="text/javascript">
+			input1_ = document.getElementById('input1')
+			//输入框输入完成后会触发onchange事件
+			input1_.onchange = function(){
+				console.log(this.value)
+			}
+			
+			//单选按钮和复选按钮选中或者取消选中触发的都是onchange事件
+			function genderChange(){
+				alert(this.value)
+			}
+			genders = document.getElementsByName('gender')
+			for(var gender_ of genders){
+				gender_.onchange = genderChange
+			}
+			
+			//下拉菜单切换选项的时候触发的也是onchange事件
+			document.getElementById('city').onchange = function(){
+				alert(this.value+':onchange被触发')
+			}
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

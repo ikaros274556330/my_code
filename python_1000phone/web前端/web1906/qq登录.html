@@ -1,0 +1,94 @@
+<script type="text/javascript" src="js/qq登录.js">
+	
+</script>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录QQ邮箱</title>
+		<script type="text/javascript" src="js/qq登录.js">
+	
+		</script>
+		
+		<link rel="stylesheet" type="text/css" href="css/qq登录.css"/>
+		
+		<link rel="icon" type="img/ico" href="img/qq邮箱登录页素材/qq_tencent_128px_511337_easyicon.net.ico"/>
+	</head>
+	<body>
+		<!--页面顶部-->
+		<div id="top">
+			<a href="https://mail.qq.com/"><img src="img/qq邮箱登录页素材/qqmail_logo_default_35h206ff1.png"/ width="220px" height="45px"></a>
+			<ul>
+				<li><a href="">基本版</a><span>|</span></li>
+				<li><a href="">English</a><span>|</span></li>
+				<li><a href="">手机版</a><span>|</span></li>
+				<li><a href="">企业邮箱</a></li>
+			</ul>
+			
+		</div>
+		<!--页面中部-->
+		<div id="mid">
+			<div id="mid1">
+				<div id="mid11">
+					<p id="常联系">QQ邮箱,&emsp;常联系!</p>
+					<p class='c1'>到头来，</p>
+					<p class='c1'>我们记住的，</p>
+					<p class='c1'>不是敌人的攻击，</p>
+					<p class='c1'>而是朋友的沉默。</p>
+					<p class='c1'>——马丁·路德·金</p>
+					<p class='c1'style="font-size: 14px;">插画来自丑丑(两岁)</p>
+				</div>
+			</div>
+			<div id="mid2">
+				<div id="mid22">
+					<div id="mid22-1">
+						<input type="button" name="" id="wx-login" value="微信登录" 
+							onclick="document.getElementById('mid22-2-2').style.display='block'
+							document.getElementById('mid22-2').style.display='none'
+							document.getElementById('qq-login').style.color='rgb(153, 153, 153)'
+							document.getElementById('wx-login').style.color='black'
+							"/>
+						<input type="button" name="" id="qq-login" value="QQ登录" 
+							onclick="document.getElementById('mid22-2-2').style.display='none'
+							document.getElementById('mid22-2').style.display='block'
+							document.getElementById('qq-login').style.color='black'
+							document.getElementById('wx-login').style.color='rgb(153, 153, 153)'
+							"/>
+					</div>
+					<div id="mid22-2-2">
+						<div id="wx-erweima">
+							<p>请使用微信扫描二维码</p>
+						</div>
+						<input type="checkbox" name="" id="zidongdenglu" value="" /><font>下次自动登录</font>
+						<p id="buhutong">微信与QQ账号的邮箱数据不互通</p>
+					</div>
+					<div id="mid22-2">
+						<input type="text" name="" id="qq-input" value="" placeholder="支持QQ号/邮箱/手机号登录"/>
+						<input type="password" name="" id="pw-input" value="" placeholder="QQ密码"/>
+						<div id="auto-box">
+							<input type="checkbox" name="" id="auto-login" value="" /><font>下次自动登陆</font>
+						</div>
+						<input type="button" name="" id="login" value="登录" />
+						<div id="saoma">
+							<p id="saoma-1">扫码快捷登陆</p>
+						</div>
+						<a id="forget-pw" href="https://aq.qq.com/v2/uv_aq/html/reset_pwd/pc_reset_pwd_input_account.html?v=3.0&old_ver_account=">忘了密码？</a>
+						
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<!--页面底部-->
+		<div id="botton">
+			<a href="">关于腾讯</a><font>|</font>
+			<a href="">服务条款</a><font>|</font>
+			<a href="">隐私政策</a><font>|</font>
+			<a href="">客服中心</a><font>|</font>
+			<a href="">联系我们</a><font>|</font>
+			<a href="">帮助中心</a><font>|</font>
+			<span>©1998 - 2019 Tencent Inc. All Rights Reserved.</span>
+		</div>
+	</body>
+</html>

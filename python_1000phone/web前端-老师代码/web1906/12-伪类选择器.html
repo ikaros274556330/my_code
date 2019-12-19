@@ -1,0 +1,67 @@
+<!--
+	1.什么是伪类选择器
+	普通选择器选中的是一个标签所有的状态，选中后添加的样式对标签的所有状态有效
+	伪类选择器选中的是一个标签指定的状态，选中后添加的样式只针对这一个状态有效
+	
+	2.语法: 
+	普通选择器:状态{}
+	
+	1)link      -  链接没有被成功访问的时候对应的状态, 只有a标签才有这个状态
+	2)visited   -  链接已经被成功访问过对应的状态， 只有a标签才有
+	3)hover     -  鼠标悬停在标签上对应的状态， 所有可见标签都有效
+	4)active    -  鼠标按住标签不放对应的状态， 所有可见标签都有效
+
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--==============1.link状态================-->
+		<style type="text/css">
+			a:link{
+				color: red;
+			}
+		</style>
+		<a href="https://www.baidu.com">百度</a>
+		
+		<!--==============2.visited状态================-->
+		<style type="text/css">
+			a:visited{
+				color: green;
+			}
+		</style>
+		
+		<!--==============3.hover状态================-->
+		<br /><br />
+		<style type="text/css">
+			#s1:hover{
+				color: yellowgreen;
+			}
+			
+			font:hover{
+				background-color: yellow;
+			}
+		</style>
+		<span id="s1">我是span</span>
+		<font>我是font</font>
+		
+		<!--==============4.active状态================-->
+		<br /><br />
+		<style type="text/css">
+			p:active{
+				color: chartreuse;
+			}
+			img:active{
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+		<p>我是段落2</p>
+		<img src="img/aaa.ico"/>
+	</body>
+	
+</html>

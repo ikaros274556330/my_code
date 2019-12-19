@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//1.变量的声明
+	/*
+	 1)语法一:
+	 变量名 = 值
+	 
+	 a.不管在哪儿声明都是全局变量
+	 b.可以修改变量的值
+	 
+	 2)语法二:
+	 var 变量名 = 值
+	 
+	 a.如果在{}或者函数外声明，从声明开始任何位置都可以用
+	 b.如果在函数中声明，就只能在函数用
+	 c.可以修改变量的值
+	 d.声明前可以先使用，默认值是undefined
+	 
+	 3)语法三:
+	 let 变量名 = 值
+	 
+	 a.没有声明在{}中，从声明开始任何位置都可以用
+	 b.如果在{}中声明，就只能在{}中使用
+	 c.可以修改变量的值
+	 
+	 
+	 4)语法四:
+	 const 变量名 = 值
+	 
+	 a.变量的值不能修改
+	 
+	 */
+	console.log('===============1.四种声明变量的方式==================')
+	name = '小明'
+	console.log(name)
+	name = '小花'
+	console.log(name)
+	
+	var age = 18
+	console.log(age)
+	age = 20
+	console.log(age)
+	
+	let gender = '男'
+	console.log(gender)
+	gender = '女'
+	console.log(gender)
+	
+	const height = 180
+	console.log(height)
+	//height = 200        // 报错!
+	//console.log(height)
+	
+	
+	console.log('==================2.不同的声明方式的特点================')
+	//1)语法一的特点
+	num1 = 100
+	console.log('在外面声明外面用:',num1)
+	
+	{
+		console.log('在外面声明代码块中用:',num1)
+		num2 = 200
+		console.log('在块中声明块中用:', num2)
+		
+	}
+	
+	console.log('在块中声明块外面用:', num2)
+	
+	function func1(){
+		console.log('在外面声明函数中使用:', num1)
+		console.log('在块中声明函数中用:', num2)
+		
+		num3 = 300
+	}
+	func1()
+	console.log('在函数中声明函数外部用:', num3)
+	
+	
+	//2)var变量
+	function func2(){
+		num11 = 111
+		var num12 = 222
+	}
+	func2()
+	console.log('num11:', num11)
+	//console.log('num12:', num12 )   //报错!!
+	
+	//3)let变量
+	{
+		num21 = 111
+		var num22 = 222
+		let num23 = 333
+		console.log('num23:', num23)
+	}
+	console.log('num21:', num21)
+	console.log('num22:', num22)
+	//console.log('num23:', num23)   //报错!! 
+	
+	console.log('==================变量提前==================')
+	console.log(score)
+	var score = 100
+	
+	//console.log(study_id)
+	let study_id = '001'
+	
+	
+	
+	
+	
+</script>

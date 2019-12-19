@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1.表单标签:  form
+			表单标签是专门用来做用户信息收集的标签；是一个容器型的标签，单独用没有意义，一般需要配合表单相关标签来使用。
+			主要完成数据的提交和重置的功能
+			
+			表单相关标签: input、textarea、select
+			
+			action属性  -   数据提交的方法/接口
+			method属性  -   http请求方式(接口类型)
+		-->
+		<form action="" method="get">
+			
+		</form>
+		
+		<form action="" method="get">
+			<!--2.input标签
+				type属性  - 决定标签的作用
+			-->
+			<!--1)text  -  普通文本输入框
+				name属性  - 用来分区和提交数据的
+				value属性 - 输入框中的内容
+				placeholder属性  -  占位符(输入提示信息)
+				maxlength属性  - 限制输入框内容的长度
+			-->
+			<font>用户名:</font><input type="text" name="userName" id="" value="张三" placeholder="请输入用户名" maxlength="8"/>
+			<br /><br />
+			<font>电话:</font><input type="text" name="tel" id="" value="" placeholder="请输入手机号" />
+			
+			<!--2)password  -  密码输入框
+				name属性  - 用来分区和提交数据的
+				value属性 - 输入框中的内容
+				placeholder属性  -  占位符(输入提示信息)
+				maxlength属性  - 限制输入框内容的长度
+			-->
+			<br /><br />
+			<font>密码:</font><input type="password" name="" id="" value="123456" placeholder="密码6~12位" />
+			
+			
+			<!--3)radio   -  单选按钮
+				name属性  -  用来分区和提交数据的（注意: 同一组选项的name属性必须一致）
+				value属性 -  标签点当前按钮选中的数据的值（不可见）
+				checked属性 - 设置为"checked", 对应的按钮会被默认选中
+			-->
+			<br /><br />
+			<!--让label标签的for属性和表单标签的id属性保持一致，可以让label和表单标签进行关联-->
+			<input type="radio" name="gender" id="1" value="男" checked="checked"/><label for="1">男</label>
+			<input type="radio" name="gender" id="2" value="女" /><label for="2">女</label>
+			
+			<!--4)checkbox  - 复选按钮
+				name属性  -  用来分区和提交数据的（注意: 同一组选项的name属性必须一致）
+				value属性 -  标签点当前按钮选中的数据的值（不可见）
+				checked属性 - 设置为"checked", 对应的按钮会被默认选中
+			-->
+			<br /><br />
+			<input type="checkbox" name="interest" id="b1" value="篮球" /><label for="b1">篮球</label>
+			<input type="checkbox" name="interest" id="b2" value="唱" /><label for="b2">唱</label>
+			<input type="checkbox" name="interest" id="b3" value="跳" /><label for="b3">跳</label>
+			<input type="checkbox" name="interest" id="b4" value="rap" checked="checked"/><label for="b4">rap</label>
+			
+			<!--5)button  - 普通按钮
+				value属性  - 按钮上可见的文字
+				disabled属性  - 设置为'disabled',是禁用
+			-->
+			<br /><br />
+			<input type="button" name="" id="" value="确定" />
+			
+			<!--button标签-->
+			<button>确定</button>
+			<button><img src="img/aaa.ico"/></button>
+			
+			<!--6)submit  -  提交按钮
+				将当前form标签中所有设置name属性值的相关的标签，以'name=value'的进行对数据进行提交
+			-->
+			<input type="submit" name="" id="" value="提交" />
+			
+			<!--7)reset - 重置按钮
+				将当前form标签中所有相关标签的状态恢复到初始状态
+			-->
+			<input type="reset" name="" id="" value="重置" />
+			
+		</form>
+	</body>
+</html>

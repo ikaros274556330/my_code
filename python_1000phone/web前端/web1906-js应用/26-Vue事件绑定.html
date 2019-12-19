@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+			
+		</script>
+	</head>
+	<body>
+		
+		<div id="app1">
+			<!--直接绑定methods中的函数名-->
+			<!--
+				事件.stop可以捕获事件
+			-->
+			<button v-on:click.stop="buttonAction">按钮</button>
+			<br />
+			
+			<!--版本1-->
+			<button v-on:click="addAction">+</button>
+			<font>{{num}}</font>
+			<button v-on:click="subAction">-</button>
+			
+			
+			<!--版本2-->
+			<!--<button v-on:click="num++">+</button>
+			<font>{{num}}</font>
+			<button v-on:click="num--">-</button>-->
+			
+			
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			//注意:创建Vue对象的时候，添加到data、methods、computed等等的属性
+			//都是添加到Vue对象中的，可以直接Vue.来调用方法或者属性
+			var app1 = new Vue({
+				el:'#app1',
+				data:{
+					num:100
+				},
+				
+				//this是当前Vue对象
+				methods:{
+					buttonAction:function(){
+						alert('莫点老子！')
+					},
+					addAction:function(){
+						this.num++
+					},
+					subAction:function(){
+						this.num--
+					},
+				}
+			})
+		</script>
+	</body>
+</html>

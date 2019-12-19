@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+			
+		</script>
+		<script type="text/javascript" src="js/jquery.min.js">
+		</script>
+		
+		<style type="text/css">
+			#div1{
+				height: 200px;
+				background: darkgray;
+				width: 200px;
+				font-size: 60px;
+				text-align: center;
+				color: white;
+				border: 0;
+				margin: 0;
+			}
+			
+			.c1{
+				height: 200px;
+				width: 200px;
+				background-color: darkgray;
+				color: white;
+				font-size: 60px;
+				text-align: center;
+				border: 0;
+				margin: 0;
+			}
+			
+			#广州{
+				background-color: red;
+			}
+			
+			#div2{
+				width: 600px;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<div id="app1">
+			<div id="div1">
+				{{thiscity}}
+			</div>
+			<div id="div2">
+				<button class="c1" v-bind:id="i" v-for="i of city_list" v-on:click="click_func(i,$event)">{{i}}</button>
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			
+			var app1 = new Vue({
+				el:'#app1',
+				data:{
+					city_list:[
+					'广州','北京','上海','四川','重庆','云南','大连','黑龙江','攀枝花'],
+					thiscity:'广州'
+				},
+				methods:{
+					click_func:function(city,evt){
+						$('.c1').css('background-color','darkgray')
+						$(evt.srcElement).css('background-color','red')
+						this.thiscity=city
+					}
+				}
+			})
+		</script>
+
+	</body>
+</html>

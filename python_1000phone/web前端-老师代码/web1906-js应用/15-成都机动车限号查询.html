@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box1{
+				height: 200px;
+				border-bottom: 1px solid gray;
+							
+				position: relative;
+			}
+			
+			#box1>div{
+				position: absolute;
+				bottom: 10px;
+				
+				width: 100%;
+				text-align: center;
+			}
+			
+			#box1 input{
+				border: 0;
+				outline: 0;
+				border-bottom: 1px dotted lightgray;
+				
+				text-align: center;
+				
+				width: 450px;
+				font-size: 35px;
+			}
+			
+			#box1 button{
+				width: 80px;
+				height: 35px;
+				
+				color: white;
+				font-size: 25px;
+				
+				background-color: red;
+				
+				border: 0;
+				outline: 0;
+			}
+			#box2{
+				margin-top: 20px;
+			}
+			#box2>p{
+				text-align: center;
+				font-size: 20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<div id="">
+				<input placeholder="请输入车牌号" id="input1"/>
+				<button onclick="queryCarNumber()">查询</button>
+				<button onclick="clearResult()">清除</button>
+			</div>
+			
+		</div>
+		<div id="box2"></div>
+		
+		
+		<script type="text/javascript">
+			var input1_ = document.getElementById('input1');
+			var box2_ = document.getElementById('box2')
+			//================2.清除================
+			function clearResult(){
+				box2_.innerHTML=''
+			}
+			
+			//================1.查询=================
+			
+			function queryCarNumber(){
+				// 1.获取输入的车牌号
+				var carNumber = input1_.value;
+				if(carNumber.length == 0){
+					alert('没有输入车牌号!');
+					return;
+				}
+				
+				var result;
+				//2.检查车牌是否合法
+				var carRegular = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+				if(!carRegular.test(carNumber)){
+					result = carNumber+'不是合法的车牌号';
+				}else{
+					
+					//3.判断合法的车牌号今日是否限行
+					//获取星期
+					var today = new Date();
+					var week = today.getDay();
+					if(week == 0 || week == 6){
+						result = carNumber+'今日不限行';
+					}else{
+						//获取车牌号的第一个数字
+						var num;
+						for(var index=carNumber.length-1; index>=0; index--){
+							var ch = carNumber[index]
+							if(ch>='0' && ch<='9'){
+								num = Number(ch)
+								break
+							}
+						}
+						
+						//判断这个数字在今日是否限行
+						if(num == week || num == (week+5)%10){
+							result = carNumber+'今日限行'
+						}else{
+							result = carNumber+'今日不限行'
+						}
+					}
+					
+				}
+				
+				//4.展示结果
+				resultNode = document.createElement('p')
+				resultNode.innerText = result
+				box2_.insertBefore(resultNode, box2_.firstElementChild)
+				
+				//5.清空输入框
+				input1_.value = ''
+			}
+		</script>
+	</body>
+</html>

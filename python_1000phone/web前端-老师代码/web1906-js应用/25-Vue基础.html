@@ -1,0 +1,157 @@
+<!--
+	1.什么Vue  -  用js封装的框架,主要让数据渲染更加简单
+	Vue主要是通过一个Vue对象和网页内容进行关联，关联后修改Vue对象就可以直接修改网页内容
+	在工程要用Vue，需要先导入vue.js文件
+	
+	2.Vue对象  - js
+	el属性  -   字符串，传选择器(一般写id选择器), 将当前创建的Vue对象和html中的标签进行关联
+	data属性  -  对象, 对象的属性和对应的值程序员自己确定，没有要求; 通过对象的属性提供数据
+	methods属性 -  对象, 对象的属性名随便命名，属性值必须函数; 通过对象属性提供方法
+	computed属性 -  对象,对象的属性名随便命名, 属性值必须函数, 函数的返回值就是使用属性的值
+	
+	3.Vue指令  - html
+	1)标签内容  -  {{Vue属性名}}
+	2)标签属性  -  v-bind:标签属性 = 'Vue属性名'
+	3)if语句    -  v-if='Vue属性名' (如果Vue属性值是true对应的标签就显示，否则就隐藏)
+	4)循环结构  -  v-for = '变量 in 类型是数组的Vue属性'
+	5)双向绑定  -  v-model='Vue属性名' (一般在表单标签中有效)
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>	
+		
+	</head>
+	<body>
+		
+		<!-----------1.绑定标签内容-------------->
+		<p id="app1">{{pContent}}</p>
+		
+		<div id="app2">
+			<p>哈哈哈:{{pc}}=====</p>
+			<font>{{fontc}}</font>
+			<a href="">{{ac}}</a>
+			<p>{{num*10}}</p>
+		</div>
+		<script type="text/javascript">
+			//创建Vue对象
+			var app1 = new Vue({
+				el:'#app1',
+				data:{
+					message: '我是段落1',
+					message1: '我不是段落1',
+					pContent: '我是段落，我是段落',
+				}
+			})
+			
+			var app2 = new Vue({
+				el:'#app2',
+				data:{
+					pc:'我是段落2',
+					fontc: '我是font1',
+					ac: '我是超链接1',
+					num: 100
+				}
+			})
+			
+		</script>
+		
+		<!---------------2.标签属性-------------------->
+		<hr />
+		<div id="app3">
+			<img v-bind:src="imageUrl" v-bind:title="imgaeTitle"/>
+			<input v-bind:value="userName" />
+			<p v-bind:style="pStyle">{{pc}}</p>
+		</div>
+		<script type="text/javascript">
+			var a = '你好'
+			var app3 = new Vue({
+				el:'#app3',
+				data: {
+					imageUrl: 'img/a1.jpg',
+					imgaeTitle: '图片1',
+					userName: '张三',
+					pc: a,
+					pStyle: 'color:red;'
+				}
+			})
+			
+			app3.imageUrl = 'img/anchor.png'
+			
+		</script>
+		
+		<!----------------3.if语句-------------------->
+		<hr />
+		<div id="app4">
+			<p v-if="age>=18">网吧: 请进</p>
+			<p v-if="isShow">我是段落4</p>
+		</div>
+		<script type="text/javascript">
+			
+			var app4 = new Vue({
+				el:'#app4',
+				data:{
+					age:80,
+					isShow: true
+				}
+			})
+		</script>
+		
+		<!----------------4.for循环----------------->
+		<hr />
+		<div id="app5">
+			<p v-for="name in names">{{name}}</p>
+			
+			<div v-for="goods in goodsList">
+				<p class="goodsname">{{goods.name}}</p>
+				<p class="goodsprice">￥{{goods.price}}.00</p>
+				<hr />
+			</div>
+		</div>
+		<script type="text/javascript">
+			var app5 = new Vue({
+				el: '#app5',
+				data:{
+					names: ['香水有毒', '冲动的惩罚', '2002年的第一场雪', '那一夜', '情人'],
+					goodsList: [
+						{name:'辣条', price:1},
+						{name:'泡面', price:3.5},
+						{name:'二锅头', price:8},
+						{name:'火腿肠', price:2}
+					]
+				}
+			})
+		</script>
+		
+		<!----------------5.双向绑定---------------->
+		<hr />
+		<div id="app6">
+			<p>{{userName}}</p>
+			<input v-model="userName" />
+			
+			<select v-model="city">
+				<option value="重庆">重庆</option>
+				<option value="成都">成都</option>
+				<option value="北京">北京</option>
+			</select>
+			
+			<p>{{city}}</p>
+			
+		</div>
+		<script type="text/javascript">
+			var app6 = new Vue({
+				el: '#app6',
+				data:{
+					userName: '张三',
+					city: '重庆'
+				}
+			})
+		</script>
+		
+		
+	</body>
+</html>

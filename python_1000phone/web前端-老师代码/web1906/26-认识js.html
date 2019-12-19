@@ -1,0 +1,89 @@
+<!--
+	1.什么是js
+	js是javascript的缩写，是web标准中的行为标准，主要负责网页中内容的变化
+	js是python类似的一门脚本语言；专门用来为web开发做服务的
+	
+	2.js代码写在哪儿
+	1)内联js(行内js)： 写在标签的事件属性中，例如onclick属性
+	2)内部js：  写在script标签中(script标签理论可以写html的任何位置，但是一般写在head或者body中)
+	3)外部js: 将js代码写在一个js文件中， 然后在html文件中通过script标签导入
+	          注意: 用来导入外部js文件的script标签中不能再写其他的js代码
+	          
+	3.js能做什么
+	1)修改标签内容
+	2)修改标签属性
+	3)修改标签样式
+	4)获取标签属性和内容
+	5)在网页中添加新的内容
+	
+	4.怎么写js代码
+	js语法
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--=====================1.写在哪儿示例=================-->
+		<!--2.内部js-->
+		<!--<script type="text/javascript">
+			//在这儿就可以写js代码
+			alert('内部js1')
+		</script>-->
+		
+		<!--3.外部js-->
+		<!--<script type="text/javascript" src="js/26-认识js.js">
+			
+		</script>-->
+		
+		<!--1.内联js-->
+		<!--<button onclick="alert('内联的js')">按钮1</button>
+		
+		
+		<script type="text/javascript">
+			alert('内部js2')
+		</script>-->
+		
+		<!--==================2.js能做什么===================-->
+		<!--1)修改标签内容-->
+		<p id="p1">我是段落1</p>
+		
+		<button onclick="document.getElementById('p1').innerText='我是python'">改变内容</button>
+		<br /><br />
+		
+		<!--2)修改标签属性-->
+		<img id="img1" src="img/bear.png"/>
+		<button onclick="document.getElementById('img1').src='img/ghost.png'">修改图片</button>
+		
+		<!--3)修改标签样式-->
+		<p id="p2">我是段落2</p>
+		<button onclick="document.getElementById('p2').style.color='red'">改变字体颜色</button>
+		<br /><br />
+		
+		<!--4)获取标签内容/属性-->
+		<input  type="" name="" id="input1" value="" />
+		<button onclick="alert(document.getElementById('input1').value)">获取内容</button>
+		
+		<!--5)在网页中添加内容-->
+		<script type="text/javascript">
+			names = ['百度', '新浪', '爱奇艺', '千锋']
+			for(name of names){
+				document.write('<font>&emsp;</font>')
+				document.write('<a href="https://www.baidu.com">'+name+'</a>')
+			}
+//			for(x=0;x<10;x++){
+//				document.write('<a href="https://www.baidu.com">百度</a>')
+//			}
+			
+		</script>
+		
+		
+	</body>
+</html>
+
+<!--<script type="text/javascript">
+	alert('内部js3')
+</script>-->

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.name{
+				color: red;
+				font-size: 30px;
+			}
+			.price{
+				color: seagreen;
+				font-size: 20px;
+				
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app1">
+			<div class="goods" v-for="goods in goodsList" v-bind:style="background">
+				<p class="name">{{goods.name}}</p>
+				<p class="price">￥{{goods.price}}</p>
+				<hr />
+			</div>
+			
+			<p>总价:{{totalPrice}}</p>
+			<p>{{num1+num2}}</p>
+			
+			<input type="color" v-model="color" />
+		</div>
+		<script type="text/javascript">
+			var app1 = new Vue({
+				el: '#app1',
+				data:{
+					color:'#ff0000',
+					goodsList: [
+						{name:'辣条', price:1},
+						{name:'泡面', price:3.5},
+						{name:'二锅头', price:8},
+						{name:'火腿肠', price:2},
+						{name:'卤蛋', price:1}
+					],
+					num1: 100,
+					num2: 200
+				},
+				computed:{
+					background: function(){
+						return 'background-color:'+this.color+';'
+					},
+					totalPrice:function(){
+						var sum1 = 0
+						for(var goods of this.goodsList){
+							sum1 += goods.price
+						}
+						
+						return sum1
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>
+
+<!--goodsList: [
+						{name:'辣条', price:1},
+						{name:'泡面', price:3.5},
+						{name:'二锅头', price:8},
+						{name:'火腿肠', price:2}
+					]-->

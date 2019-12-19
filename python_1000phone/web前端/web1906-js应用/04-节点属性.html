@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p id='p1'><a href='https://'>百度</a>我是段落1</p>
+		
+		<script type="text/javascript">
+			//节点内容和属性:获取到节点后,节点对应的标签的内容和属性在节点中都会对应一个属性
+			//1.双标签的内容
+			//1)innerText - 获取双标签的文字内容
+			//2)innerHTML - 双标的内容属性
+			
+			_p1 = document.getElementById('p1')
+			console.log(_p1.innerText)
+			console.log(_p1.innerHTML)
+			
+			
+			console.log('========================')
+			//修改标签内容
+//			_p1.innerText = '我还是段落1~~~~~'
+			
+			_p1.innerHTML = "<img src='img/luffy.jpg'>"
+			console.log(_p1.innerHTML)
+			
+		</script>
+	</body>
+</html>

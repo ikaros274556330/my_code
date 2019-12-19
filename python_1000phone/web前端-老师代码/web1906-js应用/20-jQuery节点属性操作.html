@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<p id="p1">我是段落1</p>
+		<input type="" name="" id="" value="张三" />
+		<p id="p2">我是段落2</p>
+		<p id="p3">我是段落3</p>
+		<!------------1.特殊属性-------------->
+		<script type="text/javascript">
+			//1)标签内容: text(), html()
+			//获取标签内容
+			console.log($('#p1').text(), $('#p1').html())
+			
+			//修改标签内容
+			$('#p1').text('我是jQuery')
+			$('#p1').html('1.<a href="">我是jQuery</a>')
+			
+			//2)value属性: val()
+			console.log($('input').val())
+			$('input').val('李四')
+			
+			//3)class属性
+			//addClass(class值)  -  添加class
+			$('input').addClass('c1')
+			$('input').addClass('c2')
+			
+			//removeClass(class值)  - 移除指定class
+			$('input').removeClass('c1')
+		</script>
+		
+		<!------------2.样式属性-------------->
+		<script type="text/javascript">
+			//1)css(样式属性名)   -   获取样式指定属性的值
+			//  css(样式属性名,样式属性值)  -  设置指定样式属性的值
+			//注意: 这儿的属性名和css属性名一致
+			$('#p2').css('color', 'red')
+			$('#p2').css('font-size', '30px')
+			console.log($('#p2').css('color'))
+			
+			//2)css(对象)   -  同时设置多个属性
+			/*
+			 css({
+			 	属性名1: 值1,
+			 	属性名2: 值2,
+			 	属性名3: 值3,
+			 	....
+			 })
+			 
+			 
+			 注意: 属性名不加引号是css属性名采用驼峰式命名； 加引号还是可以用css属性名
+			 */
+			$('#p3').css({
+				'color':'red',
+				'font-size': '30px',
+				'backgroundColor': 'yellow'
+			})
+			
+			
+		</script>
+		
+		<img src="img/anchor.png"/>
+		<!------------3.普通属性-------------->
+		<script type="text/javascript">
+			//1)attr(属性名)  -  获取指定属性值
+			//  attr(属性名, 值)   -  修改指定属性的值
+			console.log($('img').attr('src'))
+			$('img').attr('src', 'img/bear.png')
+			$('img').attr('title', '熊')
+		</script>
+		
+	</body>
+</html>

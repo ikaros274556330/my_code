@@ -1,0 +1,320 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+
+/*=========页面顶部=========*/
+#header{
+	height: 120px;
+}
+
+/*======logo部分======*/
+#header>#logo{
+	height: 80px;
+	position: relative;
+}
+
+#logo>div{
+	left: 150px;
+	position: absolute;
+	
+	/*垂直方向居中*/
+	top: 50%;
+	margin-top: -30px;
+}
+
+#logo>div>img{
+	margin-left: 20px;
+}
+
+/*调查问卷*/
+#logo>a{
+	right: 170px;
+	bottom: 10px;
+	position: absolute;
+	font-size: 12px;
+	color:rgb(148,148,148);
+	text-decoration: none
+}
+
+#logo>a:hover{
+	color: rgb(216,36,50);
+	text-decoration: underline
+}
+
+#logo>a>img{
+	/*设置垂直方向的对齐方式*/
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+
+/*======隐私政策======*/
+#header>#privacy{
+	height: 40px;
+	background-color: rgb(255,246,236);
+	
+	
+	/*一行内容垂直方向居中*/
+	line-height: 40px;
+	
+	/*内容在水平方向居中*/
+	text-align: center;
+}
+
+#privacy>font{
+	font-size: 12px;
+	color: rgb(148,148,148);
+	
+	/*设置背景图
+	 * background:图片地址 是否平铺 水平方向的位置 垂直方向的位置(top/center/bottom/y坐标)
+	 */
+	background: url(../img/jd素材/icon-tips.png)no-repeat 0 center rgba(0,0,0,0);
+	padding-left: 20px;
+}
+
+#privacy>font>a{
+	color: rgb(57,57,57);
+	text-decoration: none;
+	
+}
+
+#privacy>font>a:hover{
+	text-decoration: underline;
+	
+}
+
+
+/*=========中间内容=========*/
+#content{
+	height: 475px;
+	
+	background: url(../img/jd素材/6efbf2cadd6042e2.jpg) no-repeat 150px 0 rgb(235,210,170);
+	
+	position: relative;
+}
+
+#logoinBox{
+	width: 350px;
+	height: 400px;
+	background-color: white;
+	
+	top: 10px;
+	right: 170px;
+	position: absolute;
+}
+
+#box1{
+	height: 40px;
+	background-color: rgb(255,246,236);
+	
+	line-height: 40px;
+	text-align: center;
+}
+
+#box1>font{
+	font-size: 12px;
+	color: rgb(148,148,148);
+	background: url(../img/jd素材/icon-tips.png) no-repeat 0 center rgba(0,0,0,0);
+	padding-left: 20px;
+}
+
+#box2{
+	height: 50px;	
+	line-height: 50px;
+	text-align: center;
+}
+
+#box2>button{
+	width: 167px;
+	height: 100%;
+	background-color: white;
+	
+	border: 0;
+	
+	font-size: 19px;
+	color: rgb(83,83,83);
+	font-weight: 600;
+	
+	outline: 0;
+}
+
+/*设置box2中最后一个botton*/
+#box2>button:last-child{
+	color: rgb(216,36,50);
+	font-weight: 600;
+}
+
+#box2>button:hover{
+	color: rgb(216,36,50);
+	font-weight: 600;
+}
+
+/*竖线*/
+#box2>font{
+	color: rgb(241,241,241);
+	font-size: 20px;
+	font-weight: 100;
+}
+
+/*===输入账号密码===*/
+#box3{
+	position: relative;
+	height: 260px;
+	border-top: 1px solid rgb(241,241,241);
+	border-bottom: 1px solid rgb(241,241,241);
+}
+
+/*账号密码*/
+#box3>div{
+	width: 310px;
+	height: 40px;
+	border: 1px solid rgb(184,184,184);
+	margin-left: 20px;
+	margin-top: 20px;
+	position: relative;
+}
+
+#box3>div:first-child{
+	margin-top: 35px;
+	margin-bottom: 20px;
+}
+
+#box3>div img{
+	width: 40px;
+	height: 40px;
+	border-right: 1px solid rgb(184,184,184);
+}
+
+#box3>div>input{
+	height: 40px;
+	width: 255px;
+	border: 0;
+	outline: 0;
+	
+	vertical-align: top;
+	
+	font-size: 14px;
+	padding-left: 5px;
+}
+
+/*忘记密码*/
+#box3>a{
+	right: 20px;
+	position: absolute;
+	margin-top: 20px;
+	
+	font-size: 12px;
+	color: rgb(83,83,83);
+	text-decoration: none;
+}
+
+#box3>a:hover{
+	color: rgb(216,36,50);
+	text-decoration: underline;
+}
+
+#box3>button{
+	height: 35px;
+	width: 310px;
+	
+	position: absolute;
+	
+	left: 20px;
+	bottom: 30px;
+	
+	border: 0;
+	outline: 0;
+	background-color: rgb(216,36,50);
+	
+	font-size: 22px;
+	color: white;
+}
+
+#box4{
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+}
+
+#qq{
+	margin-left: 20px;
+	font-size: 12px;
+	color: rgb(83,83,83);
+	text-decoration: none;
+	
+	background: url(../img/jd素材/qq.png) no-repeat 0 center rgb(0,0,0,0);
+	padding-left: 25px;
+}
+
+#weixin{
+	font-size: 12px;
+	color: rgb(83,83,83);
+	text-decoration: none;
+	
+	background: url(../img/jd素材/weixin.png) no-repeat 0 center rgb(0,0,0,0);
+	padding-left: 25px;
+}
+
+#qq:hover,#weixin:hover{
+	text-decoration: underline;
+}
+
+#regist{
+	right: 20px;
+	position: absolute;
+	font-size: 14px;
+	color: rgb(163,14,28);
+	text-decoration: none;
+	
+	background: url(../img/jd素材/right.png) no-repeat 0 center rgb(0,0,0,0);
+	padding-left: 25px;
+}
+
+#regist:hover{
+	text-decoration: underline;
+}
+
+#box4>font{
+	font-size: 12px;
+	color: rgb(200,200,200);
+	font-weight: 500;
+	margin-left: 7px;
+	margin-right: 5px;
+}
+
+/*=========页面底部=========*/
+#footer{
+	height: 105px;
+}
+
+#footer>div{
+	height: 50px;
+	line-height: 50px;
+	text-align:center;
+}
+
+#footer>div>a{
+	font-size: 12px;
+	color: rgb(83,83,83);
+	text-decoration: none;
+}
+
+#footer>div>a:hover{
+	text-decoration: underline;
+	color: rgb(216,36,50);
+}
+
+#footer>div>font{
+	font-size: 12px;
+	color: rgb(83,83,83);
+	margin-left: 15px;
+	margin-right: 9px;
+}
+
+#footer>p{
+	text-align: center;
+}

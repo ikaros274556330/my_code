@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片和超链接</title>
+	</head>
+	<body>
+		<!--1.图片标签: img
+			1)src属性: 图片路径
+					   本地文件路径（绝对路径/相对路径）
+					   网络图片路径
+			2)title属性: 图片标题(鼠标悬停在图片上等一会儿才会出现)
+			3)alt属性:  图片加载失败的提示信息(图片加载失败的时候才会显示)
+		-->
+		<!--显示本地图片-->
+		<img src="img/luffy.jpg" />
+		<br />
+		<!--显示网络图片-->
+		<img src="https://www.baidu.com/img/bd_logo1.png"/>
+		
+		<img src="img/hat3.png" title="帽子" alt="帽子加载失败"/>
+		
+		<!--2.超链接: a
+			<a href="跳转目的地">可见可点击的部分</a>  == []()
+			
+			1)href属性  - 跳转的目的地
+				a.网页地址  -  跳转到指定网页
+				b.本地html文件地址 - 在浏览器中直接打开指定html文件对应的网页
+				c.选择器  -  将当前页面滚动到选择器所在的位置
+				d.#      -   刷新页面
+				
+			2)target属性  - 页面打开方式
+			 	a._self   -  默认值，在当前页面中渲染出新的页面
+			 	b._blank  -  不动原页面，在新的窗口中渲染新的页面
+			
+		-->
+		<!--文字超链接-->
+		<br />
+		<a href="https://www.baidu.com" target="_blank">百度</a>
+		<!--图片超链接-->
+		<br />
+		<a href="https://www.baidu.com"><img src="img/aaa.ico"/></a>
+		
+		<a href="03-列表标签.html">列表</a>
+		
+		<hr id="top"/>
+		<a href="#page1">第一章</a>
+		<a href="#page2">第二章</a>
+		<a href="#page3">第三章</a>
+		<a href="#">刷新</a>
+		
+		<h1 id="page1">第一章</h1>
+		<img src="img/img1.jpg"/>
+		<h1 id="page2">第二章</h1>
+		<img src="img/img2.jpeg"/>
+		<h1 id="page3">第三章</h1>
+		<img src="img/img3.jpg"/>
+		<hr />
+		<a href="#top">回到顶部</a>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+			
+		</script>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+		<style type="text/css">
+			*{
+				border: 0;
+				margin: 0;
+			}
+			
+			#page{
+				text-align: center;
+				width: 990px;
+				margin: 0 auto;
+			}
+			
+			#up{
+				height: 50px;
+				background-color: lightgray;
+			}
+			#up>div{
+				height: 100%;
+				float: left;
+				width: 165px;
+				margin-top: 10px;
+			}
+			
+			#mid{
+				min-height: 300px;
+			}
+			
+			.goods{
+				height: 150px;
+			}
+			
+			.goods>div{
+				float: left;
+				height: 150px;
+
+			}
+			
+			.goodsimg>img{
+				width: 100px;
+				height: 100px;
+			}
+			
+			.goodname{
+				width: 300px;
+			}
+			
+			.price{
+				width: 200px;
+			}
+			
+			.num{
+				width: 100px;
+			}
+			
+			.price-s{
+				width: 200px;
+			}
+			
+			.delete{
+				width: 50px;
+			}
+			
+			#down{
+				height: 50px;
+			}
+			
+			#down>div{
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="page">
+			<div id="up">
+				<div><input type="checkbox" name="" id="all_choose" value="" v-on:click="allchoose_func()"/><label for="all_choose">全选</label></div>
+				<div>商品</div>
+				<div>单价</div>
+				<div>数量</div>
+				<div>小计</div>
+				<div>操作</div>
+			</div>
+			
+			<div id="mid">
+				<div class="goods" v-for="good in goodsList">
+					<div><input type="checkbox" name="" class="chooses" v-on:click="choose_func(good,$event)" v-model="good.choose"/></div>
+					<div class="goodsimg"><img v-bind:src="good.img"/></div>
+					<div class="goodname"><p>￥{{good.name}}.00</p></div>
+					<div class="price">{{good.price}}</div>
+					<div class="num"><button v-on:click="sub_func(good)" v-if="good.flag">-</button>{{good.num}}<button v-on:click="add_func(good)">+</button></div>
+					<div class="price-s">￥{{good.price*good.num}}.00</div>
+					<div class="delete" v-on:click="delete_func(good,$event)">删除</div>
+				</div>
+			</div>
+			
+			<div id="down">
+				<div><font>删除选中商品</font></div>
+				<div><font>总共选中{{allchoose_num()}}件商品&emsp;总计:</font><font>￥{{all_price()}}.00</font></div>
+				<div><button>去结算</button></div>
+			
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var chooses = document.getElementsByClassName('chooses')
+			function aaaa(){
+				for(o of chooses){
+					o.checked=false
+				}
+			}
+			function bbbb(){
+				for(o of chooses){
+					o.checked=true
+				}
+			}
+			var page = new Vue({
+				el:"#page",
+				data:{
+					allchoose:false,
+					goodsList:[
+					{
+						name:'【6+128GB直降200】红米note8pro6400万四摄4500mAh大电量小米手机redmi拍照智能学生小米官方旗舰店xiaomi',
+						img:'https://g-search1.alicdn.com/img/bao/uploaded/i4/imgextra/i2/44096902/O1CN01O4cVZm20rADlsPVIj_!!0-saturn_solar.jpg_250x250.jpg',
+						price:1299,
+						num:0,
+						flag:false,
+						choose:false
+					},
+					{
+						name:'【3+32GB低至549】红米7A大电量大字体大音量智能拍照学生老年人小米官方旗舰店官网正品xiaomi红米小米手机',
+						img:'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/1714128138/O1CN01WZdTgs29zFlDN7eaW_!!0-item_pic.jpg_250x250.jpg',
+						price:539,
+						num:0,
+						flag:false,
+						choose:false
+					},
+					{
+						name:'【8+512G 2399 】红米k20pro 尊享版骁龙855Plus新品4800万智能4G全网通手机小米官方旗舰正品红米k20 30',
+						img:'https://g-search1.alicdn.com/img/bao/uploaded/i4/i3/2616970884/O1CN01AHqST61IOuhSJuUwz_!!0-item_pic.jpg_250x250.jpg',
+						price:2399,
+						num:0,
+						flag:false,
+						choose:false
+					},
+					]
+				},
+				methods:{
+					add_func:function(good){
+						good.flag=true
+						good.num++
+					},
+					sub_func:function(good){
+						good.num--
+						if(good.num<1){
+							good.flag=false
+						}
+					},
+					all_price:function(){
+						var all_price = 0
+						for(i of this.goodsList){
+							if(i.choose){
+								all_price += i.num*i.price
+							}
+						}
+						return all_price
+					},
+					choose_func:function(good,evt){
+						console.log(evt.srcElement.checked)
+						if(evt.srcElement.checked==true){
+							good.choose=false
+//							evt.srcElement.checked=false
+						}else{
+							good.choose=true
+//							evt.srcElement.checked=true
+						}
+					},
+					allchoose_num:function(){
+						var choo_num = 0
+						for(let i of this.goodsList){
+							if(i.choose){
+								choo_num++
+							}
+						}
+						return choo_num
+					},
+					allchoose_func:function(){
+						for(c of this.goodsList){
+							console.log(c.choose)
+						}
+						if(this.allchoose){
+							aaaa()
+							for(let i of this.goodsList){
+								
+								if(i.choose){
+									i.choose=false
+								}
+							};
+							this.allchoose=false
+						}
+						else{
+							bbbb()
+							for(let j of this.goodsList){
+								if(j.choose==false){
+									j.choose=true
+								}
+							};
+							this.allchoose=true
+						}
+					},
+					delete_func:function(good,evt){
+						good.num=0
+						$(evt.srcElement.parentElement).remove()
+					},
+				}
+			})
+		</script>
+		
+	</body>
+</html>

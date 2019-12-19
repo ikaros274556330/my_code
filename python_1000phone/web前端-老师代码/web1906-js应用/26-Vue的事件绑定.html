@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<!---------------1.绑定事件------------------>
+		<div id="app1">
+			<!--直接和methods中的函数绑定-->
+			<button v-on:click="buttonAction">按钮</button>
+			
+			<br />
+			<button v-on:click="num++">+</button>
+			<font>{{num}}</font>
+			<button v-on:click="num--">-</button>
+			
+			<div v-on:click="div1Action" style="width: 200px; height: 200px; background-color: aquamarine;">
+				<!--绑定click事件并且捕获-->
+				<div v-on:click.stop="div2Action" style="width: 100px; height: 100px; background-color: red;">
+					
+				</div>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			var app1 = new Vue({
+				el: '#app1',
+				data:{
+					num: 100
+				},
+				methods:{
+					buttonAction: function(){
+						//this是当前Vue对象
+						alert('按钮被点击')
+					},
+					addAction:function(){
+						this.num ++ 
+					},
+					subAction: function(){
+						this.num -- 
+					},
+					div1Action:function(evt){
+						console.log(arguments)
+						//methods中的函数中的this都是当前Vue对象
+						console.log(this)
+						alert('div1被点击')
+						
+						
+					},
+					div2Action:function(evt){
+						alert('div2被点击')
+						
+						//捕获事件
+						//evt.stopPropagation()
+					}
+					
+				}
+				
+			})
+			
+			//注意: 创建Vue对象的时候，添加到data、methods、computed中所有的属性，本质都会绑定到Vue对象上
+			console.log('num:', app1.num)
+			app1.buttonAction()
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

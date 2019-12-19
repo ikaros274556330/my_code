@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/29-购物车.css"/>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app1">
+			<!-----------------商品展示部分------------------->
+			<div id="goodsBox">
+				<!------------表头------------->
+				<ul>
+					<!--全选-->
+					<li class="check">
+						<input type="checkbox" v-on:change="selectAll" v-model="isSelectAll"/>
+						<label for="checkAll">全选</label>
+					</li>
+					<li class="goods">商品</li>
+					<li class="price">单价</li>
+					<li class="num">数量</li>
+					<li class="subtotal">小计</li>
+					<li class="operation">操作</li>
+					
+				</ul>
+				
+				<!------------购物车中的商品----------------->
+				<div class="goodsList" v-for="goods in goodsList">
+					<div class="check">
+						<input type="checkbox" v-model="goods.isSelect" />
+					</div>
+					<!--商品-->
+					<div class="goods goods1">
+						<img v-bind:src="goods.image"/>
+						<p>{{goods.name}}</p>
+					</div>
+					<!--单价-->
+					<div class="price">
+						<font>￥{{goods.price}}</font>
+					</div>
+					<!--数量-->
+					<div class="num">
+						<button v-on:click="subCount(goods);goods.isSelect=true">-</button>
+						<input v-on:change="inputCount(goods)" v-model="goods.count" />
+						<button v-on:click="goods.count++;goods.isSelect=true">+</button>
+					</div>
+					<!--小计-->
+					<div class="subtotal">
+						<font>{{(goods.count*goods.price).toFixed(2)}}</font>
+					</div>
+					<!--操作-->
+					<div class="operation">
+						<button v-on:click="delGoods(goods)">删除</button>
+					</div>
+				</div>
+			
+			</div>
+			
+			<!----------------------商品结算部分----------------->
+			<div id="account">
+				<button v-on:click="delSelect">删除选中商品</button>
+				<button id="accountBtn">去结算</button>
+				<font>总共选中了<font id="accountNum">{{totalSelectCount}}</font>件商品 总计: <font id="totalPrice">￥{{totalPrice}}</font></font>
+				
+			</div>
+		</div>
+		
+		<!-----------------导入外部js文件---------------->
+		<script type="text/javascript" src="js/29-购物车.js"></script>
+		
+	</body>
+</html>

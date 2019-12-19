@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1" style="background-color: red; width: 400px; height: 400px; margin: auto;">
+			<div id="div2" style="background-color: green; width: 250px; height: 250px; margin: auto;">
+				<div id="div3" style="background-color: yellow; width: 100px; height: 100px; margin: auto;">	
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//事件传递: 发生在子标签上的事件会传递给父标签。 
+			//事件传递问题：如果父子标签都对同一个事件进行绑定，那么子标签触发事件的时候父标签也会做出反应
+			//解决事件传递问题: 捕获事件
+	
+			document.getElementById('div1').onclick = function(){
+				alert('红色div被点击')
+			}
+			
+			document.getElementById('div2').onclick = function(evt){
+				alert('绿色div被点击')
+				
+				evt.stopPropagation()
+			}
+			
+			document.getElementById('div3').onclick = function(evt){
+				alert('黄色div被点击')
+				
+				//鼠标事件对象属性:
+				//clientX和clientY  -  点击点到浏览器左边和顶部的距离
+				//offsetX和offsetY  -  点击点到标签左边和顶部的距离
+				console.log(evt)
+				console.log(evt.offsetX, evt.offsetY)
+				
+				//捕获事件(阻止事件传递到父标签)
+				evt.stopPropagation()
+				
+				
+			}
+		</script>
+		
+		<input type="" name="input1" id="input1" value="" />
+		<script type="text/javascript">
+			document.getElementById('input1').onkeydown = function(evt){
+				
+				//键盘事件对象属性: key  - 键值
+				console.log(evt)
+				console.log(evt.key)
+//				console.log(arguments)
+			}
+		</script>
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

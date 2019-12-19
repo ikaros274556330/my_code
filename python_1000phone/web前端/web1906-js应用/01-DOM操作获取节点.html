@@ -1,0 +1,96 @@
+<!--
+	1.什么是DOM
+	DOM - document object mode(文档对象模型)
+		  js内部自动创建了一个对象，叫document，通过这个对象可以去获取网页中的内容
+	
+	2.获取节点 - 在js中获取标签对应的节点
+	document.getElementById(id属性值) - 获取html中id是指定值的标签，
+	返回值是标签对应的节点对象
+	
+	document.getElementsByClassName(class属性值) - 获取html中class属性是指定值
+	的所有标签,返回值是class指定属性的容器
+	
+	document.getElementsByTagName(标签名) - 获取指定标签的节点,返回值是容器
+	
+	document.getElementsByName(标签名) - 获取指定name值的节点,返回容器
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p id='p1'>我是段落1</p>
+		<a href="" class='c1'>百度</a>
+		<p class='c1'>我是段落2</p>
+		
+		<!--1.获取节点-->
+		<script type="text/javascript">
+			
+			//1)通过id获取节点对象
+			p1_ = document.getElementById('p1')
+			console.log(p1_)
+			
+			//2)通过class获取节点对象
+			c1_list = document.getElementsByClassName('c1')
+			
+			//c1_list是元素是c1节点的容器
+			console.log(c1_list)
+			
+			//注意:不能通过for-in遍历获取节点,除了下标会有其他元素
+//			for(x in c1_list){
+//				console.log(x)
+//			}
+			
+			for(x of c1_list){
+				console.log(x)
+			}
+			
+			//3)通过标签名获取节点
+			p_list = document.getElementsByTagName('p')
+			for(x of p_list){
+				console.log(x)
+			}
+			
+			
+			console.log('========父子节点============')
+			
+		</script>
+		
+		<div>
+			<p id='p3'>我是段落3</p>
+			<a href="">我是超链2</a>
+			<input type="" name="userName" id="userName" value="" />
+			
+		</div>
+		
+		<!--2.父子节点-->
+		<script type="text/javascript">
+			
+			
+			//1)获取父节点 - 子节点对象.parentElement
+			p3_ = document.getElementById('p3')
+			div_ = p3_.parentElement
+			console.log(div_)
+			
+			//2)获取所有的子节点 - 节点对象.children
+			div_children = div_.children
+			console.log(div_children)
+			
+			//3)获取第一个子节点 - 节点对象.firstElementChild
+			p3 = div_.firstElementChild
+			console.log(p3)
+			
+			//4)获取最后一个节点 - 节点对象.
+			
+			last_ = div_.lastElementChild
+			console.log(last_)
+			
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<h1>我是标题1</h1>
+			
+			<h1>我是标题2</h1>
+		</div>
+		<!----------1.创建节点: $('HTML创建标签的语法')------------>
+		<script type="text/javascript">
+			//创建p标签
+			var pNodes = $('<p>我是段落1</p>')
+			console.log(pNodes)
+			
+			var divNodes = $('<div><a>我是超链接1</a><img title="熊" src="img/bear.png"></div>')
+			
+		</script>
+		
+		<!---------------2.添加节点-------------------->
+		<script type="text/javascript">
+			//1)节点对象1.append(节点对象2)   -   在节点对象1的最后添加节点对象2（对象都是jQuery对象）
+			$('#div1').append(pNodes)
+			
+			//2)节点对象1.prepend(节点对象2)  -   在节点对象1的最前面添加节点对象2
+			$('#div1').prepend(divNodes)
+			
+			//3)节点对象1.before(节点对象2)    -   在节点对象1的前面插入节点对象2
+			$('#div1 h1:last').before($('<input placeholder="请输入账号"/>'))
+			
+			//4)节点对象1.after(节点对象2)     -   在节点对象1的后面插入节点对象2
+			$('#div1 h1:first').after($('<input id="in1" type="radio" /><label for="in1">男</label>'))
+		</script>
+		
+		
+		<!----------------3.删除节点-------------------->
+		<hr />
+		<div id="div2">
+			<p>我是段落2</p>
+			<a href="">我是超链接2</a>
+			<img src="img/hat.png"/>
+			<p>我是段落3</p>
+		</div>
+		<script type="text/javascript">
+			//1) 节点对象.remove()   -  删除指定节点对象
+			$('#div2 a').remove()
+			
+//			$('#div2 p').remove()
+//			$('#div2 p').append($('<input type="color"/>'))
+
+			//2)节点对象.empty()   -  删除节点对象中所有的子节点
+			$('#div2').empty()
+			
+		</script>
+		
+		<!-----------------4.拷贝节点------------------>
+		<hr />
+		<div id="div3" style="background-color: seagreen; width: 300px; height: 200px;">
+			<p>我是段落4</p>
+			<img src="img/bucket.png"/>
+		</div>
+		
+		<script type="text/javascript">
+			$('#div3').on('click', function(){
+				alert('你好!')
+			})
+			//1）节点对象.clone()/节点对象.clone(false)  -  标签深拷贝，jQuery绑定的事件不拷贝
+			//   节点对象.clone(true)     -    标签深拷贝，jQuery绑定的事件也拷贝
+			var newDiv3s = $('#div3').clone()
+			$('#div3').after(newDiv3s)
+			
+			//补充: js对象和jQuery对象的相互转换
+			//jQuery对象 转 js对象   -  取出jQuery对象容器中的元素
+			//js对象 转 jQuery对象   -  $(js对象)
+			var div3Node =  $('#div3')[0].cloneNode()
+			$('#div3').before($(div3Node))
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

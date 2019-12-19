@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<style type="text/css">
+			#box{
+				border: 1px solid lightgray;
+				width: 250px;
+				height: 40px;
+				/*line-height: 40px;*/
+			}
+			
+			#box>img{
+				width: 40px;
+				height: 40px;
+				border-right: 1px solid lightgray;
+			}
+			
+			#box>input{
+				border: 0;
+				outline:0;
+				height: 38px;
+				width: 150px;
+				vertical-align: top;
+				/*background-color: chartreuse;*/
+				
+			}
+			
+			#box>font{
+				float: right;
+				height: 40px;
+				line-height: 40px;
+				margin-right: 10px;
+				
+				color: lightgray;
+				font-size: 20px;
+				display: none;
+				
+				cursor: pointer;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/username.png"/>
+			<input  placeholder="请输入账号"/>
+			<font>×</font>
+		</div>
+		
+		<script type="text/javascript">
+			$('#box>input').on('keyup',function(){
+				if($(this).val().length == 0){
+					$('#box>font').css('display', 'none')
+				}else{
+					$('#box>font').css('display', 'inline')
+				}
+			})
+			
+			$('#box>font').on('click', function(){
+				$('#box>input').val('')
+				$('#box>font').css('display', 'none')
+			})
+			
+		</script>
+	</body>
+</html>

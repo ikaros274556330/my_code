@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+			
+		</script>
+		<style type="text/css">
+			*{
+				border: 0;
+				margin: 0;
+			}
+			
+			.goods>div{
+				float: left;
+			}
+			
+			#mid{
+				overflow: hidden;
+			}
+			
+			#down>div{
+				float: left;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="page">
+			
+			<!--头部-->
+			<div id="up">
+				<input type="checkbox" name="" id="all_choose" value="" /><label for="all_choose">全选</label>
+				<font>商品</font>
+				<font>单价</font>
+				<font>数量</font>
+				<font>小计</font>
+				<font>操作</font>
+			</div>
+			
+			<!--中部-->
+			<div id="mid">
+				<div class="goods" v-for="good in goodsList">
+					<div><input type="checkbox" name="" id="" value="" /></div>
+					<div><img v-bind:src="good.good_img"/></div>
+					<div><p>{{good.name}}</p></div>
+					<div><p>{{good.price}}</p></div>
+					<div><button v-on:click="good.num--">-</button><font>{{good.num}}</font><button v-on:click="good.num++">+</button></div>
+					<div><p>{{good.price*good.num}}</p></div>
+					<div><p>删除</p></div>
+				</div>
+			</div>
+			
+			<!--底部-->
+			<div id="down">
+				<div><p>删除选中该商品</p></div>
+				<div><font>总共选中了件商品</font><font>总计<font>￥0.00</font></font></div>
+				<div><button>去结算</button></div>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			function flagfunc(num){
+				if(num>1){
+					return true
+				}else{
+					return false
+				}
+			};
+			
+			var page = new Vue({
+				el:"#page",
+				data:{
+					goodsList:[
+					{
+						name:'【8+512G 2399 】红米k20pro 尊享版骁龙855Plus新品4800万智能4G全网通手机小米官方旗舰正品红米k20 30',
+						good_img:'http://g-search2.alicdn.com/img/bao/uploaded/i4/i4/2616970884/O1CN01pHy0xP1IOuhTWlIhM_!!0-item_pic.jpg_360x360Q90.jpg_.webp',
+						price:2499,
+						num:1,
+						
+					},
+					{
+						name:'256G版低至24?9元起+送无线充】Xiaomi/小米 小米9手机9plus官方旗舰店mix4正品10透明尊享版cc9pro官网',
+						good_img:'https://g-search1.alicdn.com/img/bao/uploaded/i4/i3/2024314280/O1CN01yp4C9H1hUHjsYHVa1_!!0-item_pic.jpg_360x360Q90.jpg_.webp',
+						price:2299,
+						num:1,
+						
+					},
+					{
+						name:'【领券减250元+选天猫精灵】Xiaomi/小米红米Note8Pro手机 官方旗舰店小米8青春版RedmiNote9Pro官网7小米9se',
+						good_img:'https://g-search2.alicdn.com/img/bao/uploaded/i4/i1/268451883/O1CN010wQDLN1PmSMsn5ksI_!!0-item_pic.jpg_360x360Q90.jpg_.webp',
+						price:1299,
+						num:1,
+						
+					},
+					]
+				},
+				methods:{
+
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

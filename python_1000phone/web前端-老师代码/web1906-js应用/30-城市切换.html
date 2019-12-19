@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app1">
+			<select name="province" v-model="selectProvince">
+				<option v-for="province in provinces" v-bind:value="province.name">{{province.name}}</option>
+			</select>
+			<select name="city" >
+				<option v-for="city in currentCitys" v-bind:value="city">{{city}}</option>
+			</select>
+		</div>
+		
+		<script type="text/javascript">
+			var app1 = new Vue({
+				el: '#app1',
+				computed:{
+					currentCitys:function(){
+						for(var province of this.provinces){
+							if (province.name == this.selectProvince){
+								return province.citys
+							}
+						}
+					}
+				},
+				data:{
+					provinces:[
+						{name:'四川省', citys:['成都市', '德阳市', '眉山市', '攀枝花', '绵阳市', '乐山市']},
+						{name:'广东省', citys:['深圳', '东莞', '广州', '佛山', '珠海', '中山']},
+						{name:'云南省', citys:['昆明', '丽江', '西双版纳', '红河州', '大理']}
+					],
+					selectProvince:'广东省'
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/tools.js">
+			
+		</script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			/*==================水果展示====================*/
+			#box1{
+				margin-left: 50px;
+				margin-top: 20px;
+			}
+			
+			.f1{
+				width: 250px;
+				height: 60px;
+				background-color: cadetblue;
+				margin-bottom: 2px;
+				
+				color: white;
+				font-size: 20px;
+				
+				line-height: 60px;
+				
+				text-align: center;
+				
+				position: relative;
+			}
+			
+			.f1>font:last-child{
+				position: absolute;
+				right: 10px;
+			}
+			
+			.close{
+				/*将鼠标变成手的样式*/
+				cursor: pointer;
+			}
+			
+			/*====================添加水果===================*/
+			#box2{
+				margin-left: 50px;
+				margin-top: 20px;
+			}
+			
+			#input1{
+				border: 0;
+				outline: 0;
+				border-bottom: 1px solid lightgray;
+				
+				width: 250px;
+				height: 30px;
+				
+				text-align: center;
+				font-size: 20px;
+			}
+			
+			#box2>button{
+				width: 100px;
+				height: 30px;
+				
+				font-size: 16px;
+				color: white;
+				
+				background-color: orangered;
+				
+				border: 0;
+				outline: 0;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<div class="f1">
+				<font>苹果</font>
+				<font class="close">×</font>
+			</div>
+			
+			<div class="f1">
+				<font>香蕉</font>
+				<font class="close">×</font>
+			</div>
+			
+			<div class="f1">
+				<font>火龙果</font>
+				<font class="close">×</font>
+			</div>
+			
+			<div class="f1">
+				<font>西瓜</font>
+				<font class="close">×</font>
+			</div>
+			
+		</div>
+		<div id="box2">
+			<input type="" name="" id="input1" value="" />
+			<button onclick="addFurit()">确定</button>
+		</div>
+		
+		<script type="text/javascript">
+			
+			input1_ = document.getElementById('input1')
+			box1_ = document.getElementById('box1')
+			
+			//======1.添加水果=======
+			function addFurit(){
+				
+				var furitName = input1_.value
+				
+				//没有输入水果名
+				if(furitName.length == 0){
+					furitName = prompt('请输入水果名:')
+					
+					if(furitName == null || furitName.length == 0){
+						return
+					}
+				}
+				
+				//添加水果
+				var furitBoxNode = document.createElement('div')
+				furitBoxNode.className = 'f1'
+				furitBoxNode.style.backgroundColor = randowColor(0.5)
+				
+				var furitNameNode = document.createElement('font')
+				furitNameNode.innerText = furitName
+				
+				var closeNode = document.createElement('font')
+				closeNode.innerText = '×'
+				closeNode.className = 'close'
+				closeNode.onclick = delFurit
+				
+				furitBoxNode.appendChild(furitNameNode)
+				furitBoxNode.appendChild(closeNode)
+				
+				box1_.insertBefore(furitBoxNode, box1_.firstElementChild)
+				
+				//清空输入框
+				input1_.value = '';
+				
+			}
+			
+			//给默认的四个水果添加点击事件
+			(function(){
+				var closeNodes = document.getElementsByClassName('close')
+				for(var closeNode of closeNodes){
+					console.log(closeNode)
+					closeNode.onclick = delFurit
+				}
+				
+			})();
+			
+			//======2.删除水果=======
+			function delFurit(){
+				this.parentElement.remove()
+			}
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

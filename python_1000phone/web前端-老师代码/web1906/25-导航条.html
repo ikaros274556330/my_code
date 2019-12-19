@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<style type="text/css">
+			
+			/*===========导航条基本布局=================*/
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				background-color: rgb(220, 221, 223);
+				height: 40px;
+				line-height: 40px;
+				
+				list-style: none;
+			}
+			
+			.left{
+				float: left;
+				margin-left: 100px;
+			}
+			.right{
+				float: right;
+				margin-right: 30px;
+			}
+			
+			ul a{
+				text-decoration: none;
+			}
+			
+			/*=================隐藏菜单==================*/
+			#menu{
+				width: 72px;
+				height: 40px;
+				
+				position: relative;
+			}
+			#box1{
+				top: 0;
+				position: absolute;
+				
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				
+				/*改变标签上下层关系
+				 z-index默认都是1，值越大越靠上
+				 */
+				z-index: 10;
+				
+			}
+			
+			#box2{
+				width: 300px;
+				height: 200px;
+				background-color: white;
+				display: none;
+				border: 1px solid lightgray;
+				
+				position: absolute;
+				top: 40px;
+				right: -2px;
+				
+				
+			}
+			/*鼠标悬停时候显示出第二个盒子*/
+			#menu:hover #box2{
+				display: block;
+			}
+			/*鼠标悬停的时候第一个盒子和颜色和第二个一样；并且添加三个边的边框*/
+			#menu:hover #box1{
+				background-color: white;
+				border: 1px solid lightgray;
+				border-bottom: 0;
+			}
+			
+			
+			
+		</style>
+		
+		<ul>
+			<li class="left"><a href="">山东</a></li>
+			<li class="right"><a href="">我的订单</a></li>
+			
+			
+			<li class="right" id="menu">
+				<a id="box1" href="">我的京东</a>
+				<div id="box2">
+					
+				</div>
+			</li>
+			
+			
+			<li class="right"><a href="">京东会员</a></li>
+			<li class="right"><a href="">企业采购</a></li>
+		</ul>
+	</body>
+</html>

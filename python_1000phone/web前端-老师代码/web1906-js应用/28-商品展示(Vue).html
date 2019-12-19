@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.goods{
+				height: 330px;
+				/*line-height: 330px;*/
+				/*background-color: chartreuse;*/
+				/*border-bottom: 2px solid darkorchid;*/
+				
+				position: relative;
+			}
+			
+			/*------商品图片-----*/
+			.goodsImage{
+				height: 260px;
+				width: 260px;
+				position: absolute;
+				left: 20px;
+				top: 35px;
+			}
+			.goodsImage>img{
+				width: 100%;
+				height: 100%;
+				border-radius: 20px;
+			}
+			
+			/*-------------商品信息-------------*/
+			.goodsInfo{
+				height: 260px;
+				/*background-color: red;*/
+				
+				position: absolute;
+				top: 35px;
+				left: 300px;
+				
+				margin-right: 20px;
+			}
+			
+			/*商品名称*/
+			.goodsName{
+				font-size: 20px;
+				color: rgb(41,41,41);
+				font-weight: 500;
+				
+				/*超过两行的部分不显示*/
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				overflow: hidden;
+			}
+			/*标签*/
+			.tagName{
+				margin-top: 20px;
+				margin-bottom: 25px;
+			}
+			.tagName>font{
+				color: rgb(113, 113, 113);
+				background-color: rgb(244, 244, 244);
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				
+				font-size: 16px;
+				border-radius: 18px;
+			}
+			
+			/*价格*/
+			.price{
+				color: rgb(220, 18, 25);
+				font-size: 15px;
+				margin-bottom: 15px;
+			}
+			.price>font{
+				font-size: 25px;
+			}
+			
+			/*评论*/
+			.commentCount,.goodComment{
+				font-size: 16px;
+				color: rgb(158, 158, 158);
+				margin-right: 20px;
+			}
+			
+			/*店铺*/
+			.shopName{
+				margin-top: 30px;
+				
+			}
+			.shopName>font{
+				font-size: 18px;
+				color: rgb(158, 158, 158);
+			}
+			.shopName>a{
+				font-size: 18px;
+				color: rgb(53, 53, 53);
+				margin-left: 20px;
+				
+				text-decoration: none;
+			}
+			
+			/*------------3.线---------------*/
+			.line{
+				height: 1px;
+				background-color: rgb(237, 237, 237);
+				
+				position: absolute;
+				bottom: 0px;
+				left: 300px;
+				right: 20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="goodsBox">
+			<div class="goods" v-for="goods in allGoods">
+				<!--1.图片-->
+				<div class="goodsImage">
+					<img v-bind:src="goods.goods_image"/>
+				</div>
+				<!--2.商品信息-->
+				<div class="goodsInfo">
+					<!--名称-->
+					<p class="goodsName">{{goods.name}}</p>
+					<!--标签-->
+					<div class="tagName">
+						<font>{{goods.tag}}</font>
+					</div>
+					<!--价格-->
+					<p class="price">￥<font>{{goods.price}}</font></p>
+					
+					<!--评论-->
+					<div id="">
+						<font class="commentCount">{{goods.comment_total}}+条评论</font>
+						<font class="goodComment">{{goodRate(goods)}}</font>
+					</div>
+					
+					<!--商铺-->
+					<div class="shopName">
+						<font>{{goods.shop_name}}</font>
+						<a v-bind:href="goods.shop_url">进店></a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$.ajax({
+				type:"get",
+				url:"http://rap2api.taobao.org/app/mock/233723/shopping",
+				success: function(result){
+					console.log(result)
+					randerGoods(result.data)
+				}
+			});
+			
+			function randerGoods(goodsList){
+				var app1 = new Vue({
+					el: '#goodsBox',
+					data:{
+						allGoods: goodsList
+					},
+					methods:{
+						goodRate:function(goods){
+							var rate = parseInt(goods.good_conmment/goods.comment_total*100)
+							return rate+'%好评率'
+						}
+					}
+				})
+			}
+			
+			
+		</script>
+	</body>
+</html>

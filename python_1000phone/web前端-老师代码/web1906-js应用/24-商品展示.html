@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.goods{
+				height: 330px;
+				/*line-height: 330px;*/
+				/*background-color: chartreuse;*/
+				/*border-bottom: 2px solid darkorchid;*/
+				
+				position: relative;
+			}
+			
+			/*------商品图片-----*/
+			.goodsImage{
+				height: 260px;
+				width: 260px;
+				position: absolute;
+				left: 20px;
+				top: 35px;
+			}
+			.goodsImage>img{
+				width: 100%;
+				height: 100%;
+				border-radius: 20px;
+			}
+			
+			/*-------------商品信息-------------*/
+			.goodsInfo{
+				height: 260px;
+				/*background-color: red;*/
+				
+				position: absolute;
+				top: 35px;
+				left: 300px;
+				
+				margin-right: 20px;
+			}
+			
+			/*商品名称*/
+			.goodsName{
+				font-size: 20px;
+				color: rgb(41,41,41);
+				font-weight: 500;
+				
+				/*超过两行的部分不显示*/
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				overflow: hidden;
+			}
+			/*标签*/
+			.tagName{
+				margin-top: 20px;
+				margin-bottom: 25px;
+			}
+			.tagName>font{
+				color: rgb(113, 113, 113);
+				background-color: rgb(244, 244, 244);
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				
+				font-size: 16px;
+				border-radius: 18px;
+			}
+			
+			/*价格*/
+			.price{
+				color: rgb(220, 18, 25);
+				font-size: 15px;
+				margin-bottom: 15px;
+			}
+			.price>font{
+				font-size: 25px;
+			}
+			
+			/*评论*/
+			.commentCount,.goodComment{
+				font-size: 16px;
+				color: rgb(158, 158, 158);
+				margin-right: 20px;
+			}
+			
+			/*店铺*/
+			.shopName{
+				margin-top: 30px;
+				
+			}
+			.shopName>font{
+				font-size: 18px;
+				color: rgb(158, 158, 158);
+			}
+			.shopName>a{
+				font-size: 18px;
+				color: rgb(53, 53, 53);
+				margin-left: 20px;
+				
+				text-decoration: none;
+			}
+			
+			/*------------3.线---------------*/
+			.line{
+				height: 1px;
+				background-color: rgb(237, 237, 237);
+				
+				position: absolute;
+				bottom: 0px;
+				left: 300px;
+				right: 20px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<div id="goodsBox">
+		
+		</div>
+		
+		<!-------------1.请求数据-------------->
+		<script type="text/javascript">
+			$.ajax({
+				type:"get",
+				url:"http://rap2api.taobao.org/app/mock/233723/shopping",
+				success:function(result){
+					console.log(result)
+					//遍历出每个商品数据进行渲染
+					for(var goodsData of result.data){
+						renderData(goodsData)
+					}
+				}
+			});
+		</script>
+		
+		<!-----------2.渲染数据--------------->
+		<script type="text/javascript">
+			function renderData(goodsData){
+				//1.创建商品盒子
+				var goods_ = $('<div class="goods"></div>')
+				$('#goodsBox').append(goods_)
+				
+				//2.商品图片
+				var imageUrl = goodsData['goods_image']
+				var goodsImage_ = $('<div class="goodsImage"><img src="'+imageUrl+'"/></div>')
+				goods_.append(goodsImage_)
+				
+				//3.商品信息
+				//1)信息盒子
+				var goodsInfo_ = $('<div class="goodsInfo"></div>')
+				goods_.append(goodsInfo_)
+				
+				//2)商品名称
+				var name = goodsData['name']
+				var goodsName_ = $('<p class="goodsName">'+name+'</p>')
+				goodsInfo_.append(goodsName_)
+				
+				//3)商品标签
+				var tag = goodsData['tag']
+				var tagName_ = $('<div class="tagName"><font>'+tag+'</font></div>')
+				goodsInfo_.append(tagName_)
+				
+				//4)价格
+				//price = 23.45
+				var price = goodsData['price']
+				var price1 = parseInt(price)
+				var price2 = price - price1
+				if(price2 == 0){
+					price2 = '00'
+				}else if(String(price2).length == 1){
+					price2 = price2+'0'
+				}
+				var price_ = $('<p class="price">￥<font>'+price1+'</font>.'+price2+'</p>')
+				goodsInfo_.append(price_)
+				
+				//5)评论
+				var commentNum = goodsData['comment_total']
+				
+				//好评率
+				var goodComment = goodsData['good_conmment']
+				var goodRate = parseInt(goodComment / commentNum * 100)
+				
+				//评论数
+				console.log(commentNum, typeof(commentNum))
+				if(commentNum <= 100){
+					commentNum = commentNum
+				}else if(commentNum<1000){
+					commentNum = parseInt(commentNum / 100) * 100 +'+'
+				}else if(commentNum<10000){
+					commentNum = parseInt(commentNum / 1000) * 1000 +'+'
+				}else{
+					var wan = parseInt(commentNum / 10000)
+					var qian = parseInt((commentNum - wan*10000)/1000)
+					commentNum = wan + '.' + qian + '万+'
+				}
+				
+				var comment_ = $('<div><font class="commentCount">'+commentNum+'条评价</font><font class="goodComment">'+goodRate+'%好评</font></div>')
+				goodsInfo_.append(comment_)
+				
+				//6)店铺
+				var shopName = goodsData['shop_name']
+				var shopUrl = goodsData['shop_url']
+				var shopName_ = $('<div class="shopName"><font>'+shopName+'</font><a href="'+shopUrl+'">进店></a></div>')
+				goodsInfo_.append(shopName_)
+				
+				//4.线
+				var line_ = $('<div class="line"></div>')	
+				goods_.append(line_)
+			}
+		</script>
+		
+	</body>
+</html>

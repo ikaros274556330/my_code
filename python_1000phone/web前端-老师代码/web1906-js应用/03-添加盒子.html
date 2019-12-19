@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box>div{
+				width: 300px;
+				height: 100px;
+				background-color: red;
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<button onclick="addAction()">添加</button>
+		
+		<script type="text/javascript">
+			_box = document.getElementById('box')
+			
+			function addAction(){
+				var _div = document.createElement('div') 
+				_box.appendChild(_div)
+			}
+		</script>
+	</body>
+</html>

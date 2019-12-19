@@ -1,0 +1,51 @@
+<!--
+	1.什么是Ajax - asyn javascript xml(异步)
+	Ajax是jQuery封装的专门用来做http请求的相关方法。和python中第三方requests功能差不多
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript">
+			//1.ajax
+			/*
+			 $.ajax({
+			 	url:数据接口地址，
+			 	type:请求方式(get/post),
+			 	data:请求数据/参数(客户端传递给服务器的数据，值是对象)
+			 	success:请求成功的回调函数(函数)
+			 	error:请求失败的回调函数啊
+			 })
+			 */
+			
+			$.ajax({
+				type:"get",
+				url:"http://rap2api.taobao.org/app/mock/233723/shopping",
+				data:{username:'小明',password:'123456'},
+				success:function(result){
+					console.log(result)
+					console.log(result.data)
+					for(var goods of result.data){
+						var name = goods.name
+						$('#box').append($('<p>'+name+'</p>'))
+					}
+				},
+				error:function(){
+					console.log('请求失败')
+				}
+			});
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<button>按钮1</button>
+			<button>按钮2</button>
+			<button>按钮3</button>
+		</div>
+		<button id="addBtn">添加</button>
+		
+		<hr />
+		<div id="div2" style="background-color: yellow;">
+			<!--<p>我是段落1</p>-->
+			<button>按钮4</button>
+			<button>按钮5</button>
+			<!--<p>我是段落2</p>-->
+			<button>按钮6</button>
+		</div>
+		<button id="addBtn2">添加</button>
+		<!---------1.事件绑定-------------->
+		<script type="text/javascript">
+			//1)节点对象.on(事件名,事件驱动程序)  -  直接给指定的节点绑定事件
+			//注意: 事件名要去掉on
+			$('#div1>button').on('click', function(evt){
+				//注意: 这儿的this是事件源，但是是js的对象
+				console.log(this)
+				
+				$(this).css('color', 'red')
+				
+				//事件捕获：和js一样
+				evt.stopPropagation()
+			})
+			
+			console.log($('button').text())    // 按钮1按钮2按钮3
+			
+			
+			$('#addBtn').on('click', function(){
+				$('#div1').append($('<button>新按钮</button>'))
+			})
+			
+			
+			//2)节点对象.on(事件名,选择器,事件驱动程序)  -   通过父标签给选择器选中的子标签绑定事件
+			$('#div2').on('click', 'button',function(){
+				alert('按钮点击')
+				console.log(this)
+					
+			})
+			
+			$('#addBtn2').on('click', function(){
+				$('#div2').append($('<button>新按钮</button>'))
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

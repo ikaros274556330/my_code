@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1.多行文本域:textarea
+			name - 区分和提交数据
+			row - 行数,控制输入框的高度
+			cols - 列数,控制输入框的宽度
+			placeholder - 提示信息
+		-->
+		<textarea name="" rows="4" cols="50" placeholder="请输入意见..."></textarea>
+		
+		<hr />
+		<!--2.下拉菜单
+			select标签 - 整个下拉列表
+			option标签 - 下拉列表中的选项
+			
+			selected - 值设置为'selected',让指定选项处于默认选中状态
+		-->
+		<select name="city">
+			<option value="成都">成都市</option>
+			<option value="重庆">重庆市</option>
+			<option value="上海">上海市</option>
+			<option value="北京" selected="selected">北京市</option>
+		</select>
+		
+		<hr />
+		
+		<select name="">
+			<!--可以通过添加optgroup标签并且设置label属性来对同一个下拉列表中的选项进行分组-->
+			<optgroup label="成都市"></optgroup>
+			<option value="">武侯区</option>
+			<option value="">成华区</option>
+			<option value="">青羊区</option>
+			<option value="">高新区</option>
+			<option value="">新都区</option>
+			
+			<optgroup label="北京市"></optgroup>
+			<option value="">丰台区</option>
+			<option value="">朝阳区</option>
+		</select>
+		
+	</body>
+</html>

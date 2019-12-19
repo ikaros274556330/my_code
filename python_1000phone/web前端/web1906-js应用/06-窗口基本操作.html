@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>窗口基本窗口</title>
+	</head>
+	<body>
+		<button onclick="closewindow()">关闭窗口</button>
+		
+		<!--窗口基本操作-->
+		<script type="text/javascript">
+			//1.打开新的窗口
+			//open() - 打开并且返回一个新的空白窗口
+			//open(网页地址) - 打开并且返回一个指定页面的
+			//open('','',width=?,height=?) - 打开并返回一个指定大小的窗口
+			
+//			window1 = window.open()
+//			console.log(window1,window)
+			
+//			window2 = window.open('https://www.baidu.com')
+//			
+//			window3 = window.open('https://www.baidu.com','','width=200,height=200')
+		
+		    //2.关闭窗口
+		    //窗口对象.close()
+//		    function closewindow(){
+//		    	window3.close()
+//		    	window2.close()
+//		    	window1.close()
+//		    }
+		    
+		    //3.移动窗口(只有浮动的小窗口有效)
+		    //窗口对象.moveTo(x坐标,y坐标)
+		    
+//		    window3.moveTo(500,500)
+		    
+		    //4.获取窗口的大小
+		    //窗口对象.innerWidth/窗口对象.innerHeight - 窗口能显示内容的有效宽高
+		    //窗口对象.outerWidth/窗口对象.outerHeight - 整个浏览器的宽高
+		    
+		    console.log(window.innerWidth,window.outerHeight)
+		    
+		    
+		</script>
+	</body>
+</html>
